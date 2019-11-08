@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'okreplay'
+apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
     compileSdkVersion 29
@@ -19,7 +20,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,6 +34,13 @@ android {
         jvmTarget = "1.8"
         freeCompilerArgs += ["-Xuse-experimental=kotlin.Experimental"]
     }
+}
+
+dexcount {
+    includeFieldCount = true
+    includeTotalMethodCount = false
+    orderByMethodCount = true
+    enabled = ("true" == System.getenv("CI") || "true" == System.getenv("DEXCOUNT"))
 }
 
 dependencies {
@@ -53,7 +61,7 @@ dependencies {
 
     // Retrofit + Moshi - API
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.moshi:moshi-kotlin:1.9.1'
+    implementation 'com.squareup.moshi:moshi:1.9.1'
     kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.1'
     implementation 'com.squareup.retrofit2:converter-moshi:2.6.2'
 
