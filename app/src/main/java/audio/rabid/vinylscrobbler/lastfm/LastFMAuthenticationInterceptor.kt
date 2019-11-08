@@ -1,11 +1,11 @@
 package audio.rabid.vinylscrobbler.lastfm
 
-import audio.rabid.vinylscrobbler.lastfm.LastFMCallAdapterFactory.LastFMCall
 import okhttp3.FormBody
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 import okio.Buffer
+import retrofit2.Invocation
 import toothpick.InjectConstructor
 import javax.inject.Named
 
@@ -28,23 +28,25 @@ class LastFMAuthenticationInterceptor(
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
-        val call = chain.call() as? LastFMCall<*> ?: return chain.proceed(originalRequest)
+        val config = chain.request().tag(Invocation::class.java)
+            ?.method()?.getDeclaredAnnotation(LastFMMethod::class.java)
+            ?: return chain.proceed(originalRequest)
         val additionalParameters = mutableMapOf(
             "api_key" to apiKey,
-            "method" to call.config.method
+            "method" to config.method
         )
         // https://www.last.fm/api/authspec
         // https://www.last.fm/api/mobileauth
-        if (call.config.authenticated) {
-            val sk = sessionKey ?: throw LastFMUnauthenticatedException(call.config.method)
+        if (config.authenticated) {
+            val sk = sessionKey ?: throw LastFMUnauthenticatedException(config.method)
             additionalParameters["sk"] = sk
         }
-        if (call.config.signed) {
+        if (config.signed) {
             val allParameters = originalRequest.getParameters() + additionalParameters
             additionalParameters["api_sig"] = getSignature(allParameters)
         }
         val newRequest = originalRequest.newBuilder()
-            .addHeader("Content-Type", "application/json")
+            .addHeader("Accept", "application/json")
             .addHeader("User-Agent", userAgent)
             .build()
             .addParameters(additionalParameters)
@@ -59,56 +61,56 @@ class LastFMAuthenticationInterceptor(
             buffer.writeUtf8(value)
         }
         buffer.writeUtf8(apiSecret)
-        return buffer.md5().utf8()
+        return buffer.md5().hex()
     }
+}
 
-    private fun Request.getParameters(): Map<String, String> {
-        return if (isFormPost()) {
-            val body = (body() as FormBody)
-            mutableMapOf<String, String>().apply {
-                for (i in 0 until body.size()) {
-                    put(body.name(i), body.value(i))
-                }
-            }
-        } else {
-            val url = url()
-            mutableMapOf<String, String>().apply {
-                for (i in 0 until url.querySize()) {
-                    put(url.queryParameterName(i), url.queryParameterValue(i))
-                }
+fun Request.getParameters(): Map<String, String> {
+    return if (isFormPost()) {
+        val body = (body() as FormBody)
+        mutableMapOf<String, String>().apply {
+            for (i in 0 until body.size()) {
+                put(body.name(i), body.value(i))
             }
         }
-    }
-
-    private fun Request.addParameters(parameters: Map<String, String>): Request =
-        if (isFormPost()) addBodyParameters(parameters) else addQueryParameters(parameters)
-
-    private fun Request.isFormPost(): Boolean = method() == "POST" && body() is FormBody
-
-    private fun Request.addQueryParameters(parameters: Map<String, String>): Request {
-        return newBuilder().apply {
-            url(url().newBuilder().apply {
-                for ((key, value) in parameters) {
-                    addQueryParameter(key, value)
-                }
-            }.build())
-        }.build()
-    }
-
-    private fun Request.addBodyParameters(parameters: Map<String, String>): Request {
-        return newBuilder().apply {
-            post((body() as FormBody).addParameters(parameters))
-        }.build()
-    }
-
-    private fun FormBody.addParameters(parameters: Map<String, String>): FormBody {
-        val builder = FormBody.Builder()
-        for (i in 0 until size()) {
-            builder.add(name(i), value(i))
+    } else {
+        val url = url()
+        mutableMapOf<String, String>().apply {
+            for (i in 0 until url.querySize()) {
+                put(url.queryParameterName(i), url.queryParameterValue(i))
+            }
         }
-        for ((key, value) in parameters) {
-            builder.add(key, value)
-        }
-        return builder.build()
     }
+}
+
+fun Request.addParameters(parameters: Map<String, String>): Request =
+    if (isFormPost()) addBodyParameters(parameters) else addQueryParameters(parameters)
+
+private fun Request.isFormPost(): Boolean = method() == "POST" && body() is FormBody
+
+private fun Request.addQueryParameters(parameters: Map<String, String>): Request {
+    return newBuilder().apply {
+        url(url().newBuilder().apply {
+            for ((key, value) in parameters) {
+                addQueryParameter(key, value)
+            }
+        }.build())
+    }.build()
+}
+
+private fun Request.addBodyParameters(parameters: Map<String, String>): Request {
+    return newBuilder().apply {
+        post((body() as FormBody).addParameters(parameters))
+    }.build()
+}
+
+private fun FormBody.addParameters(parameters: Map<String, String>): FormBody {
+    val builder = FormBody.Builder()
+    for (i in 0 until size()) {
+        builder.add(name(i), value(i))
+    }
+    for ((key, value) in parameters) {
+        builder.add(key, value)
+    }
+    return builder.build()
 }

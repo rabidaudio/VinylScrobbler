@@ -1,6 +1,7 @@
 package audio.rabid.vinylscrobbler
 
 import com.squareup.moshi.FromJson
+import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
 import okhttp3.HttpUrl
 import java.time.Instant
@@ -28,6 +29,19 @@ object InstantAdapter {
 
     @FromJson
     fun fromJson(dateString: String): Instant = Instant.parse(dateString)
+}
+
+@JsonQualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class IntegerBoolean {
+    object Adapter {
+        @ToJson
+        fun toJson(@IntegerBoolean bool: Boolean): Int = if (bool) 1 else 0
+
+        @IntegerBoolean
+        @FromJson
+        fun fromJson(int: Int): Boolean = int != 0
+    }
 }
 
 @Suppress("NOTHING_TO_INLINE")

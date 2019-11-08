@@ -1,5 +1,6 @@
 package audio.rabid.vinylscrobbler.lastfm
 
+import audio.rabid.vinylscrobbler.IntegerBoolean
 import audio.rabid.vinylscrobbler.Wrapped
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -7,6 +8,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 @Wrapped("session")
 data class AuthGetMobileSessionResponse(
+    @IntegerBoolean
     @Json(name = "subscriber") val subscriber: Boolean,
     @Json(name = "name") val name: String,
     @Json(name = "key") val sessionKey: String

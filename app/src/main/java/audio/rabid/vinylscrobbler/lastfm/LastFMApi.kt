@@ -2,6 +2,7 @@ package audio.rabid.vinylscrobbler.lastfm
 
 import okhttp3.OkHttpClient
 import org.json.JSONObject
+import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.create
 import retrofit2.http.Field
@@ -10,7 +11,6 @@ import retrofit2.http.POST
 import toothpick.InjectConstructor
 import java.time.Instant
 import java.util.*
-import javax.inject.Named
 import javax.inject.Provider
 
 // https://www.last.fm/api/intro
@@ -22,14 +22,14 @@ interface LastFMApi {
 
     @InjectConstructor
     class Factory(
-        private val retrofit: Retrofit,
+        private val retrofitBuilder: Retrofit.Builder,
+        private val okHttpClient: OkHttpClient,
         private val lastFMAuthenticationInterceptor: LastFMAuthenticationInterceptor
     ) : Provider<LastFMApi> {
         override fun get(): LastFMApi {
-            return retrofit.newBuilder()
+            return retrofitBuilder
                 .baseUrl(BASE_URL)
-                .addCallAdapterFactory(LastFMCallAdapterFactory)
-                .client(OkHttpClient.Builder()
+                .client(okHttpClient.newBuilder()
                     .addInterceptor(lastFMAuthenticationInterceptor)
                     .build())
                 .build()
@@ -37,7 +37,7 @@ interface LastFMApi {
         }
     }
 
-    @POST("/")
+    @POST(BASE_URL)
     @FormUrlEncoded
     @LastFMMethod(method = "auth.getMobileSession", authenticated = false, signed = true)
     suspend fun authenticate(
@@ -47,7 +47,7 @@ interface LastFMApi {
 
     // https://www.last.fm/api/show/track.scrobble
     // https://www.last.fm/api/scrobbling
-    @POST("/")
+    @POST(BASE_URL)
     @FormUrlEncoded
     @LastFMMethod(method = "track.scrobble", authenticated = true, signed = true)
     suspend fun scrobble(
@@ -62,7 +62,7 @@ interface LastFMApi {
     ): JSONObject
 
     // https://www.last.fm/api/show/track.updateNowPlaying
-    @POST("/")
+    @POST(BASE_URL)
     @FormUrlEncoded
     @LastFMMethod(method = "track.updateNowPlaying", authenticated = true, signed = true)
     suspend fun updateNowPlaying(
