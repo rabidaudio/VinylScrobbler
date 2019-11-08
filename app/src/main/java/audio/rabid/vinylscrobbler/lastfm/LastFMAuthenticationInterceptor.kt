@@ -1,0 +1,114 @@
+package audio.rabid.vinylscrobbler.lastfm
+
+import audio.rabid.vinylscrobbler.lastfm.LastFMCallAdapterFactory.LastFMCall
+import okhttp3.FormBody
+import okhttp3.Interceptor
+import okhttp3.Request
+import okhttp3.Response
+import okio.Buffer
+import toothpick.InjectConstructor
+import javax.inject.Named
+
+@InjectConstructor
+class LastFMAuthenticationInterceptor(
+    @Named("LASTFM_API_KEY") private val apiKey: String,
+    @Named("LASTFM_API_SECRET") private val apiSecret: String,
+    @Named("USER_AGENT") private val userAgent: String
+) : Interceptor, LastFMSessionManager {
+
+    private var sessionKey: String? = null
+
+    override fun setSession(session: AuthGetMobileSessionResponse) {
+        sessionKey = session.sessionKey
+    }
+
+    override fun clearSession() {
+        sessionKey = null
+    }
+
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val originalRequest = chain.request()
+        val call = chain.call() as? LastFMCall<*> ?: return chain.proceed(originalRequest)
+        val additionalParameters = mutableMapOf(
+            "api_key" to apiKey,
+            "method" to call.config.method
+        )
+        // https://www.last.fm/api/authspec
+        // https://www.last.fm/api/mobileauth
+        if (call.config.authenticated) {
+            val sk = sessionKey ?: throw LastFMUnauthenticatedException(call.config.method)
+            additionalParameters["sk"] = sk
+        }
+        if (call.config.signed) {
+            val allParameters = originalRequest.getParameters() + additionalParameters
+            additionalParameters["api_sig"] = getSignature(allParameters)
+        }
+        val newRequest = originalRequest.newBuilder()
+            .addHeader("Content-Type", "application/json")
+            .addHeader("User-Agent", userAgent)
+            .build()
+            .addParameters(additionalParameters)
+            .addQueryParameters(mapOf("format" to "json"))
+        return chain.proceed(newRequest)
+    }
+
+    private fun getSignature(parameters: Map<String, String>): String {
+        val buffer = Buffer()
+        for ((key, value) in parameters.entries.sortedBy { it.key }) {
+            buffer.writeUtf8(key)
+            buffer.writeUtf8(value)
+        }
+        buffer.writeUtf8(apiSecret)
+        return buffer.md5().utf8()
+    }
+
+    private fun Request.getParameters(): Map<String, String> {
+        return if (isFormPost()) {
+            val body = (body() as FormBody)
+            mutableMapOf<String, String>().apply {
+                for (i in 0 until body.size()) {
+                    put(body.name(i), body.value(i))
+                }
+            }
+        } else {
+            val url = url()
+            mutableMapOf<String, String>().apply {
+                for (i in 0 until url.querySize()) {
+                    put(url.queryParameterName(i), url.queryParameterValue(i))
+                }
+            }
+        }
+    }
+
+    private fun Request.addParameters(parameters: Map<String, String>): Request =
+        if (isFormPost()) addBodyParameters(parameters) else addQueryParameters(parameters)
+
+    private fun Request.isFormPost(): Boolean = method() == "POST" && body() is FormBody
+
+    private fun Request.addQueryParameters(parameters: Map<String, String>): Request {
+        return newBuilder().apply {
+            url(url().newBuilder().apply {
+                for ((key, value) in parameters) {
+                    addQueryParameter(key, value)
+                }
+            }.build())
+        }.build()
+    }
+
+    private fun Request.addBodyParameters(parameters: Map<String, String>): Request {
+        return newBuilder().apply {
+            post((body() as FormBody).addParameters(parameters))
+        }.build()
+    }
+
+    private fun FormBody.addParameters(parameters: Map<String, String>): FormBody {
+        val builder = FormBody.Builder()
+        for (i in 0 until size()) {
+            builder.add(name(i), value(i))
+        }
+        for ((key, value) in parameters) {
+            builder.add(key, value)
+        }
+        return builder.build()
+    }
+}
