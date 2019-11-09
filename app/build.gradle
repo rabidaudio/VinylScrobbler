@@ -17,6 +17,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'CONTACT_EMAIL', '\"charles@rabidaudio.com\"'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.incremental":"true"
+                ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -59,30 +67,38 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-    // Contour - UI
-    implementation 'app.cash.contour:contour:0.1.5-SNAPSHOT'
-
     // Retrofit + Moshi - API
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.moshi:moshi:1.9.1'
     kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.1'
     implementation 'com.squareup.retrofit2:converter-moshi:2.6.2'
 
+    // Room - Database
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+
     // Toothpick (DI)
     implementation 'com.github.stephanenicolas.toothpick:ktp:3.1.0'
     kapt 'com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0'
-//    testImplementation 'com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.x'
+    // testImplementation 'com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.x'
 
+    // Contour - UI
+    implementation 'app.cash.contour:contour:0.1.5-SNAPSHOT'
+
+    // UI Utils
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-//    implementation 'org.hihn:musicbrainzws2-java:3.0.15'
+    // implementation 'org.hihn:musicbrainzws2-java:3.0.15'
 
+    // Debugging Utils
     debugImplementation 'com.facebook.flipper:flipper:0.27.0'
     debugImplementation 'com.facebook.soloader:soloader:0.8.0'
     releaseImplementation 'com.facebook.flipper:flipper-noop:0.27.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
 
     // Testing
-//    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 

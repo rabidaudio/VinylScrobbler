@@ -46,10 +46,10 @@ class MoshiProvider : Provider<Moshi> {
             // Toothpick doesn't support set bindings yet:
             // https://github.com/stephanenicolas/toothpick/issues/368
             .add(WrappedAdapterFactory)
-            .add(HttpUrlAdapter)
-            .add(UUIDAdapter)
-            .add(InstantAdapter)
-            .add(IntegerBoolean.Adapter)
+            .add(HttpUrlAdapter())
+            .add(UUIDAdapter())
+            .add(InstantAdapter())
+            .add(IntegerBoolean.Adapter())
             .build()
     }
 }

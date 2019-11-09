@@ -1,5 +1,6 @@
 package audio.rabid.vinylscrobbler
 
+import androidx.room.TypeConverter
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
@@ -7,34 +8,41 @@ import okhttp3.HttpUrl
 import java.time.Instant
 import java.util.*
 
-object HttpUrlAdapter {
+class HttpUrlAdapter {
+    @TypeConverter
     @ToJson
-    fun toJson(url: HttpUrl): String = url.toString()
+    fun toJson(url: HttpUrl?): String? = url?.toString()
 
+    @TypeConverter
     @FromJson
-    fun fromJson(url: String): HttpUrl? = url.nullIfBlank()?.let { HttpUrl.parse(it) }
+    fun fromJson(url: String?): HttpUrl? = url?.nullIfBlank()?.let { HttpUrl.parse(it) }
 }
 
-object UUIDAdapter {
-    @ToJson
-    fun toJson(uuid: UUID): String = uuid.toString()
 
+class UUIDAdapter {
+    @TypeConverter
+    @ToJson
+    fun toJson(uuid: UUID?): String? = uuid?.toString()
+
+    @TypeConverter
     @FromJson
-    fun fromJson(uuid: String): UUID? = uuid.nullIfBlank()?.let { UUID.fromString(it) }
+    fun fromJson(uuid: String?): UUID? = uuid?.nullIfBlank()?.let { UUID.fromString(it) }
 }
 
-object InstantAdapter {
+class InstantAdapter {
+    @TypeConverter
     @ToJson
-    fun toJson(instant: Instant): String = instant.toString()
+    fun toJson(instant: Instant?): String? = instant?.toString()
 
+    @TypeConverter
     @FromJson
-    fun fromJson(dateString: String): Instant = Instant.parse(dateString)
+    fun fromJson(dateString: String?): Instant? = dateString?.let { Instant.parse(it) }
 }
 
 @JsonQualifier
 @Retention(AnnotationRetention.RUNTIME)
 annotation class IntegerBoolean {
-    object Adapter {
+    class Adapter {
         @ToJson
         fun toJson(@IntegerBoolean bool: Boolean): Int = if (bool) 1 else 0
 
