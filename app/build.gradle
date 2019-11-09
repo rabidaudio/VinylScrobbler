@@ -43,6 +43,10 @@ dexcount {
     enabled = ("true" == System.getenv("CI") || "true" == System.getenv("DEXCOUNT"))
 }
 
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -53,11 +57,10 @@ dependencies {
     // Support
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-    // Compose - UI
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev02'
-    implementation 'androidx.ui:ui-layout:0.1.0-dev02'
-    implementation 'androidx.ui:ui-material:0.1.0-dev02'
+    // Contour - UI
+    implementation 'app.cash.contour:contour:0.1.5-SNAPSHOT'
 
     // Retrofit + Moshi - API
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
@@ -70,7 +73,13 @@ dependencies {
     kapt 'com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0'
 //    testImplementation 'com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.x'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 //    implementation 'org.hihn:musicbrainzws2-java:3.0.15'
+
+    debugImplementation 'com.facebook.flipper:flipper:0.27.0'
+    debugImplementation 'com.facebook.soloader:soloader:0.8.0'
+    releaseImplementation 'com.facebook.flipper:flipper-noop:0.27.0'
 
     // Testing
 //    testImplementation 'junit:junit:4.12'
