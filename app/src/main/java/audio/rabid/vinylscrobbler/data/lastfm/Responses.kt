@@ -1,7 +1,7 @@
-package audio.rabid.vinylscrobbler.lastfm
+package audio.rabid.vinylscrobbler.data.lastfm
 
-import audio.rabid.vinylscrobbler.IntegerBoolean
-import audio.rabid.vinylscrobbler.Wrapped
+import audio.rabid.vinylscrobbler.core.adapters.IntegerBoolean
+import audio.rabid.vinylscrobbler.core.adapters.Wrapped
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

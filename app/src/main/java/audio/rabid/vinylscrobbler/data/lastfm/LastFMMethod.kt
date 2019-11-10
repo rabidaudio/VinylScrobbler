@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler.lastfm
+package audio.rabid.vinylscrobbler.data.lastfm
 
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)

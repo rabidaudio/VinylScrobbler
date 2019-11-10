@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.adapters
 
 import com.squareup.moshi.*
 import java.lang.reflect.Type
@@ -17,7 +17,10 @@ object WrappedAdapterFactory : JsonAdapter.Factory {
             ?.filterIsInstance<Wrapped>()?.firstOrNull() ?: return null
 //        val delegateAnnotations = Types.nextAnnotations(annotations, Wrapped::class.java) ?: return null
         val delegate = moshi.nextAdapter<Any>(this, type, annotations)
-        return Adapter(delegate, wrappedAnnotation.name)
+        return Adapter(
+            delegate,
+            wrappedAnnotation.name
+        )
     }
 
     private class Adapter<T>(val delegate: JsonAdapter<T>, val name: String) : JsonAdapter<T>() {

@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.adapters
 
 import okhttp3.ResponseBody
 import org.json.JSONArray

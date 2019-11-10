@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.data.models
 
 import androidx.room.*
 import okhttp3.HttpUrl

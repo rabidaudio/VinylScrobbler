@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler.lastfm
+package audio.rabid.vinylscrobbler.data.lastfm
 
 import okhttp3.FormBody
 import okhttp3.Interceptor
@@ -38,7 +38,9 @@ class LastFMAuthenticationInterceptor(
         // https://www.last.fm/api/authspec
         // https://www.last.fm/api/mobileauth
         if (config.authenticated) {
-            val sk = sessionKey ?: throw LastFMUnauthenticatedException(config.method)
+            val sk = sessionKey ?: throw LastFMUnauthenticatedException(
+                config.method
+            )
             additionalParameters["sk"] = sk
         }
         if (config.signed) {

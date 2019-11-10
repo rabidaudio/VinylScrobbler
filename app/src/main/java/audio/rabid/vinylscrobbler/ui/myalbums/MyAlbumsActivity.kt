@@ -1,39 +1,55 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.ui.myalbums
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
+import audio.rabid.vinylscrobbler.R
+import audio.rabid.vinylscrobbler.core.ActivityScope
+import audio.rabid.vinylscrobbler.core.ApplicationScope
+import audio.rabid.vinylscrobbler.core.ui.BindingRecyclerView
+import audio.rabid.vinylscrobbler.core.ui.bindView
+import audio.rabid.vinylscrobbler.core.ui.matchParentX
+import audio.rabid.vinylscrobbler.core.ui.screenWidthDip
+import audio.rabid.vinylscrobbler.data.models.Album
 import com.squareup.contour.ContourLayout
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import okhttp3.HttpUrl
+import toothpick.ktp.KTP
+import toothpick.ktp.delegate.inject
+import toothpick.smoothie.lifecycle.closeOnDestroy
+import toothpick.smoothie.module.SmoothieActivityModule
 
 class MyAlbumsActivity : AppCompatActivity() {
 
-    private val albumGrid by lazy { AlbumGridView(this) }
+    private val albumGrid by bindView(::AlbumGridView)
+
+    private val viewModel by inject<MyAlbumsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        KTP.openScopes(ApplicationScope::class.java, this)
+            .supportScopeAnnotation(ActivityScope::class.java)
+            .installModules(SmoothieActivityModule(this), MyAlbumsModule)
+            .closeOnDestroy(this)
+            .inject(this)
+
         setContentView(albumGrid)
     }
 
     override fun onStart() {
         super.onStart()
-        val albumDao = AppDatabase.get(this).albumDao()
-        // TODO: this is temporary until we set up a view model
-        GlobalScope.launch {
-            val albums = albumDao.getAll()
-            runOnUiThread {
-                albumGrid.setItems(albums)
-            }
-        }
+        viewModel.state.observe(this, this::onStateChanged)
+    }
+
+    private fun onStateChanged(state: MyAlbumsViewModel.State) {
+        albumGrid.setItems(state.albums)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

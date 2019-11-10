@@ -1,8 +1,10 @@
 package audio.rabid.vinylscrobbler
 
+import android.content.Context
+import audio.rabid.vinylscrobbler.core.adapters.*
+import audio.rabid.vinylscrobbler.data.AppDatabase
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
-import okreplay.OkReplayInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import toothpick.InjectConstructor
@@ -29,18 +31,26 @@ val AppModule = module {
 //            .build()
 //    }
 
+//    bind<Context>().toInstance(applicationContext)
+
     bind<OkHttpClient>().toInstance {
         OkHttpClient.Builder()
 //            .addInterceptor(OkReplayInterceptor())
             .build()
     }
 
-    bind<Moshi>().toProvider(MoshiProvider::class)
-    bind<Retrofit.Builder>().toProvider(RetrofitProvider::class)
+    bind<Moshi>().toProvider(MoshiProvider::class).providesSingleton()
+    bind<Retrofit.Builder>().toProvider(RetrofitProvider::class).providesSingleton()
+    bind<AppDatabase>().toProvider(AppDatabaseProvider::class).providesSingleton()
 }
 
 @InjectConstructor
-class MoshiProvider : Provider<Moshi> {
+private class AppDatabaseProvider(val applicationContext: Context) : Provider<AppDatabase> {
+    override fun get(): AppDatabase = AppDatabase.get(applicationContext)
+}
+
+@InjectConstructor
+private class MoshiProvider : Provider<Moshi> {
     override fun get(): Moshi {
         return         Moshi.Builder()
             // Toothpick doesn't support set bindings yet:
@@ -55,7 +65,7 @@ class MoshiProvider : Provider<Moshi> {
 }
 
 @InjectConstructor
-class RetrofitProvider(
+private class RetrofitProvider(
     private val moshi: Moshi,
     private val okHttpClient: OkHttpClient
 ): Provider<Retrofit.Builder> {

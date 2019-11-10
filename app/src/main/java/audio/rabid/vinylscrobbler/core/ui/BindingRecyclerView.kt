@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.ui
 
 import android.content.Context
 import android.util.AttributeSet
@@ -46,7 +46,12 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder<V> {
-            return SimpleViewHolder(createView(parent, viewType))
+            return SimpleViewHolder(
+                createView(
+                    parent,
+                    viewType
+                )
+            )
         }
 
         fun getItem(position: Int): T = currentItems[position]

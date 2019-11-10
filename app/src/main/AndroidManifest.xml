@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MyAlbumsActivity"
+        <activity android:name="audio.rabid.vinylscrobbler.ui.myalbums.MyAlbumsActivity"
             android:label="@string/select_album" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

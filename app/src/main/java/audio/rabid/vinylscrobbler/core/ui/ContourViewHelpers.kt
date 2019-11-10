@@ -1,5 +1,5 @@
 @file:Suppress("NOTHING_TO_INLINE")
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.ui
 
 import com.squareup.contour.ContourLayout
 import com.squareup.contour.XInt

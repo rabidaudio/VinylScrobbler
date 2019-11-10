@@ -1,10 +1,14 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import audio.rabid.vinylscrobbler.core.adapters.HttpUrlAdapter
+import audio.rabid.vinylscrobbler.core.adapters.InstantAdapter
+import audio.rabid.vinylscrobbler.core.adapters.UUIDAdapter
+import audio.rabid.vinylscrobbler.data.models.Album
 
 @Database(
     entities = [Album::class],
@@ -20,7 +24,6 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         fun get(applicationContext: Context): AppDatabase {
             return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "app")
-
                 // .addMigrations()
                 .build()
         }

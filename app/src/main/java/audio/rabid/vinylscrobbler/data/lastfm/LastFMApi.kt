@@ -1,8 +1,7 @@
-package audio.rabid.vinylscrobbler.lastfm
+package audio.rabid.vinylscrobbler.data.lastfm
 
 import okhttp3.OkHttpClient
 import org.json.JSONObject
-import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.create
 import retrofit2.http.Field

@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.adapters
 
 import androidx.room.TypeConverter
 import com.squareup.moshi.FromJson

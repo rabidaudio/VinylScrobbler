@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler.lastfm
+package audio.rabid.vinylscrobbler.data.lastfm
 
 import audio.rabid.vinylscrobbler.BuildConfig
 import toothpick.ktp.binding.bind

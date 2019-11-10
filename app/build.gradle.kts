@@ -1,6 +1,6 @@
-import java.time.format.DateTimeFormatter
 import java.time.Instant
 import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 plugins {
     id("com.android.application")
@@ -73,6 +73,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc02")
 
     // Retrofit + Moshi - API
     implementation("com.squareup.retrofit2:retrofit:2.6.2")
@@ -88,8 +90,11 @@ dependencies {
 
     // Toothpick (DI)
     implementation("com.github.stephanenicolas.toothpick:ktp:3.1.0")
+    implementation("com.github.stephanenicolas.toothpick:smoothie-androidx:3.1.0")
+    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-ktp:3.1.0")
+    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-viewmodel-ktp:3.1.0")
     kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0")
-    // testimplementation("com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.x")
+    // testimplementation("com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.1.0")
 
     // Contour - UI
     implementation("app.cash.contour:contour:0.1.5-SNAPSHOT")

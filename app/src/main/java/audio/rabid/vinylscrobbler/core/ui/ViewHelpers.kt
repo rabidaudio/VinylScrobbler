@@ -1,6 +1,8 @@
 @file:Suppress("NOTHING_TO_INLINE")
-package audio.rabid.vinylscrobbler
+package audio.rabid.vinylscrobbler.core.ui
 
+import android.app.Activity
+import android.content.Context
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
@@ -23,3 +25,5 @@ inline val View.screenWidth: Int get() = context.resources.displayMetrics.widthP
 inline val View.screenHeight: Int get() = context.resources.displayMetrics.heightPixels
 inline val View.screenWidthDip: Int get() = (screenWidth.toFloat() / density).roundToInt()
 inline val View.screenHeightDip: Int get() = (screenHeight.toFloat() / density).roundToInt()
+
+inline fun <V: View> Activity.bindView(crossinline ctor: (Context) -> V) = lazy { ctor.invoke(this) }
