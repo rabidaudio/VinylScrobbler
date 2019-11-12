@@ -1,2 +1,2 @@
-include(":app", ":kadi")
+include(":app")
 rootProject.name = "Vinyl Scrobbler"
