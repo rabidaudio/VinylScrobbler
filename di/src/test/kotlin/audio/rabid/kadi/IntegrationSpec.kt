@@ -23,7 +23,8 @@ class IntegrationSpec : Spek({
 
     describe("Everything in root scope") {
         Kadi.addRootModules(
-            AppModule,
+//            AppModule,
+            Example.AppModule2(),
             module("Inline") {
                 bind<Int>(0).toInstance(0)
             }

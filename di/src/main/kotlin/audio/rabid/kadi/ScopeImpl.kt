@@ -44,16 +44,16 @@ internal class ScopeImpl internal constructor(
     //  this could be solved by annotation-processed modules
     fun containsModule(module: Module): Boolean = modules.contains(module)
 
-    private fun selfOrParentsContainModule(module: Module): Boolean {
+    private fun moduleAlreadyAvailable(module: Module): Boolean {
         synchronized(Kadi) {
-            return containsModule(module)
-                    || (parentScope?.selfOrParentsContainModule(module) ?: false)
+            return modules.any { it.name == module.name }
+                    || (parentScope?.moduleAlreadyAvailable(module) ?: false)
         }
     }
 
     internal fun addModule(module: Module) {
         synchronized(Kadi) {
-            if (selfOrParentsContainModule(module)) return
+            if (moduleAlreadyAvailable(module)) return
             for (binding in module.getBindings()) {
                 verifyBinding(binding, module.allowOverrides)
                 bindings[binding.key] = binding.copy()

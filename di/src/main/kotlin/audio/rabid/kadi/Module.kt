@@ -1,6 +1,6 @@
 package audio.rabid.kadi
 
-class Module internal constructor(
+open class Module internal constructor(
     val name: String,
     val allowOverrides: Boolean
 ) {
@@ -23,3 +23,5 @@ class Module internal constructor(
         return "Module($name)"
     }
 }
+
+internal val Module.scope get() = Kadi.getScopeForModule(this)
