@@ -1,20 +1,22 @@
 package audio.rabid.kadi
 
+import kotlin.reflect.KClass
+
 internal class ScopeImpl internal constructor(
     private val key: Any,
     private val parentScope: ScopeImpl?
 ) : ChildScope {
+    // the modules that were added in this scope (they were not already added in a parent scope)
     private val modules = mutableListOf<Module>()
+    // the bindings from the modules of this scope
+    private val bindings = mutableMapOf<BindingKey<*>, Binding<*>>()
 
+    // TODO this lookup could be cached
     private fun <T: Any> findBinding(bindingKey: BindingKey<T>): Binding<T>? {
         synchronized(Kadi) {
-            for (module in modules) {
-                for (binding in module.bindings) {
-                    @Suppress("UNCHECKED_CAST")
-                    if (binding.key == bindingKey) return binding as Binding<T>
-                }
-            }
-            return parentScope?.findBinding(bindingKey)
+            val binding = bindings[bindingKey] ?: return parentScope?.findBinding(bindingKey)
+            @Suppress("UNCHECKED_CAST")
+            return binding as Binding<T>
         }
     }
 
@@ -40,23 +42,28 @@ internal class ScopeImpl internal constructor(
         }
     }
 
-    private fun moduleAlreadyImported(module: Module): Boolean {
+    // TODO if you construct multiple copies of the same module we're going to have a problem...
+    //  this could be solved by annotation-processed modules
+    fun containsModule(module: Module): Boolean = modules.contains(module)
+
+    private fun selfOrParentsContainModule(module: Module): Boolean {
         synchronized(Kadi) {
-            return modules.contains(module) || (parentScope?.moduleAlreadyImported(module) ?: false)
+            return containsModule(module)
+                    || (parentScope?.selfOrParentsContainModule(module) ?: false)
         }
     }
 
-    fun addModule(module: Module) {
+    private fun addModule(module: Module) {
         synchronized(Kadi) {
-            if (!moduleAlreadyImported(module)) {
-                for (binding in module.bindings) {
-                    verifyBinding(binding, module.allowOverrides)
-                }
-                for (importedModule in module.importedModules) {
-                    addModule(importedModule)
-                }
-                modules.add(module)
+            if (selfOrParentsContainModule(module)) return
+            for (binding in module.getBindings()) {
+                verifyBinding(binding, module.allowOverrides)
+                bindings[binding.key] = binding.copy()
             }
+            for (importedModule in module.getImporedModules()) {
+                addModule(importedModule)
+            }
+            modules.add(module)
         }
     }
 
@@ -85,10 +92,8 @@ internal class ScopeImpl internal constructor(
 
     override fun close() {
         synchronized(Kadi) {
-            for (module in modules) {
-                for (binding in module.bindings) {
-                    if (binding.provider is SingletonProvider) binding.provider.release()
-                }
+            for ((_,binding) in bindings) {
+                if (binding.provider is SingletonProvider) binding.provider.release()
             }
             Kadi.scopes.remove(key)
         }

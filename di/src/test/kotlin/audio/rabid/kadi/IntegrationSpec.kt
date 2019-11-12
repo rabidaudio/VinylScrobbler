@@ -16,20 +16,18 @@ import org.spekframework.spek2.style.specification.describe
 
 class IntegrationSpec : Spek({
 
-    defaultTimeout = 600_000
-
     describe("Dummy Application") {
 
         val application by memoized { Application() }
-        val activity1 by memoized { Activity1() }
+        val activity1 by memoized { Activity1(application) }
         val fragment1 by memoized { Fragment() }
-        val activity2 by memoized { Activity2() }
+        val activity2 by memoized { Activity2(application) }
         val fragment2 by memoized { Fragment() }
 
         it("should allow the creation of child scopes") {
 
             application.onApplicationCreate()
-            val appScope = Kadi.getScope(Application::class)
+            val appScope = Kadi.getScope(application)
             expect(appScope.get<Logger>()).to.be.an.instanceof(Logger::class.java)
             expect(appScope.get<String>("AppName")).to.equal("MyApp")
             expectToThrow<IllegalStateException> { appScope.get<Activity1ViewModel>() }
@@ -43,16 +41,16 @@ class IntegrationSpec : Spek({
             expect(activity1.viewModel.database).to.be.an.instanceof(Database::class.java)
             expect(activity1.viewModel.database).to.satisfy { it === appScope.get<IDatabase>() }
 
-            fragment1.onAttach(Activity1::class)
+            fragment1.onAttach(activity1)
             expect(fragment1.viewModel).to.be.an.instanceof(FragmentViewModel::class.java)
-            expect(Kadi.getScope(Fragment::class).get<Activity1ViewModel>()).to.satisfy { it === activity1.viewModel }
+            expect(Kadi.getScope(fragment1).get<Activity1ViewModel>()).to.satisfy { it === activity1.viewModel }
             expectToThrow<IllegalStateException> {
-                Kadi.getScope(Activity1::class).get<FragmentViewModel>()
+                Kadi.getScope(activity1).get<FragmentViewModel>()
             }
-            expect(Kadi.getScope(Fragment::class).get<FragmentViewModel>()).to.equal(fragment1.viewModel)
+            expect(Kadi.getScope(fragment1).get<FragmentViewModel>()).to.equal(fragment1.viewModel)
 
             activity2.onCreate()
-            fragment2.onAttach(Activity2::class)
+            fragment2.onAttach(activity2)
 
             expect(activity2.viewModel).to.be.an.instanceof(Activity2ViewModel::class.java)
             expect(fragment2.viewModel).to.be.an.instanceof(FragmentViewModel::class.java)
@@ -61,20 +59,20 @@ class IntegrationSpec : Spek({
 
             fragment1.onDetach()
 
-            expectToThrow<IllegalStateException> { Kadi.getScope(Fragment::class) }
-            expect(Kadi.getScope(Activity1::class).get<Activity1ViewModel>()).to.equal(activity1.viewModel)
+            expectToThrow<IllegalStateException> { Kadi.getScope(fragment1) }
+            expect(Kadi.getScope(activity1).get<Activity1ViewModel>()).to.equal(activity1.viewModel)
 
             fragment2.onDetach()
 
             activity2.onDestroy()
             activity1.onDestroy()
 
-            expectToThrow<IllegalStateException> { Kadi.getScope(Fragment::class) }
+            expectToThrow<IllegalStateException> { Kadi.getScope(fragment2) }
 
             val database = appScope.get<IDatabase>() as Database
             expect(database.isClosed).to.be.`false`
-            Kadi.getScope(Application::class).close()
-            expect(database.isClosed).to.be.`false`
+            Kadi.getScope(application).close()
+            expect(database.isClosed).to.be.`true`
         }
     }
 })

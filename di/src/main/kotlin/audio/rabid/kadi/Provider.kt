@@ -33,4 +33,6 @@ class SingletonProvider<T: Any>(private val wrapped: Provider<T>): Provider<T> {
             return value ?: wrapped.get().also { value = it }
         }
     }
+
+    fun copy(): SingletonProvider<T> = SingletonProvider(wrapped)
 }

@@ -2,13 +2,12 @@ package audio.rabid.kadi
 
 import androidx.annotation.CheckResult
 import java.lang.ref.WeakReference
+import kotlin.reflect.KClass
 
 object Kadi : Scope {
 
-//    object RootScope
-
-    private val rootScope = ScopeImpl(Kadi, null)
-    internal val scopes = mutableMapOf<Any, ChildScope>()
+    private val rootScope = ScopeImpl(Kadi::class, null)
+    internal val scopes = mutableMapOf<Any, ScopeImpl>()
 
     @CheckResult
     fun getScope(identifier: Any): ChildScope {
@@ -26,6 +25,15 @@ object Kadi : Scope {
 
     override fun inject(receiver: Any) {
         rootScope.inject(receiver)
+    }
+
+    // TODO this lookup could be cached
+    internal fun getScopeForModule(module: Module): Scope {
+        if (rootScope.containsModule(module)) return rootScope
+        for ((_, scope) in scopes) {
+            if (scope.containsModule(module)) return scope
+        }
+        throw IllegalStateException("$module not found in any scopes")
     }
 
     fun closeScope(identifier: Any) {

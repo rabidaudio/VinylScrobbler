@@ -35,7 +35,7 @@ object Example {
 
     class Application {
         fun onApplicationCreate() {
-            Kadi.createChildScope(Application::class, AppModule)
+            Kadi.createChildScope(this, AppModule)
         }
     }
 
@@ -46,19 +46,19 @@ object Example {
     }
 
 
-    class Activity1 {
+    class Activity1(val application: Application) {
         val viewModel by inject<Activity1ViewModel>()
         val logger by inject<Logger>()
 
         fun onCreate() {
-            Kadi.getScope(Application::class)
-                .createChildScope(Activity1::class, Activity1Module)
+            Kadi.getScope(application)
+                .createChildScope(this, Activity1Module)
                 .inject(this)
             logger.log("foo")
         }
 
         fun onDestroy() {
-            Kadi.closeScope(Activity1::class)
+            Kadi.closeScope(this)
         }
     }
 
@@ -77,14 +77,14 @@ object Example {
     class Fragment {
         val viewModel by inject<FragmentViewModel>()
 
-        fun onAttach(parentScope: KClass<*>) {
-            Kadi.getScope(parentScope)
-                .createChildScope(Fragment::class, FragmentModule)
+        fun onAttach(activity: Any) {
+            Kadi.getScope(activity)
+                .createChildScope(this, FragmentModule)
                 .inject(this)
         }
 
         fun onDetach() {
-            Kadi.closeScope(Fragment::class)
+            Kadi.closeScope(this)
         }
     }
 
@@ -109,17 +109,17 @@ object Example {
         }
     }
 
-    class Activity2 {
+    class Activity2(val application: Application) {
         val viewModel by inject<Activity2ViewModel>()
 
         fun onCreate() {
-            Kadi.getScope(Application::class)
-                .createChildScope(Activity2::class, Activity2Module)
+            Kadi.getScope(application)
+                .createChildScope(this, Activity2Module)
                 .inject(this)
         }
 
         fun onDestroy() {
-            Kadi.closeScope(Activity2::class)
+            Kadi.closeScope(this)
         }
     }
 }

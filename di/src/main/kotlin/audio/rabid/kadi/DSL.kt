@@ -3,12 +3,10 @@ package audio.rabid.kadi
 import androidx.annotation.CheckResult
 
 
-class BindingBlock internal constructor() {
-    internal val bindings = mutableListOf<Binding<*>>()
-    internal val importedModules = mutableSetOf<Module>()
+class BindingBlock internal constructor(internal val module: Module) {
 
-    fun require(module: Module) {
-        importedModules.add(module)
+    fun require(otherModule: Module) {
+        module.require(otherModule)
     }
 
     @CheckResult
@@ -19,6 +17,8 @@ class BindingBlock internal constructor() {
         PartialBindingBlock(this, BindingKey(T::class, identifier), overrides)
 }
 
+// TODO These could be better implemented with interfaces and a single class
+
 class PartialBindingBlock<T: Any>(
     private val bindingBlock: BindingBlock,
     private val bindingKey: BindingKey<T>,
@@ -26,15 +26,17 @@ class PartialBindingBlock<T: Any>(
 ) {
 
     fun with(provider: Provider<T>) {
-        bindingBlock.bindings.add(Binding(bindingKey, overrides, provider))
+        bindingBlock.module.addBinding(Binding(bindingKey, overrides, provider))
     }
+
+    fun providerBlock(): ProviderBlock = ProviderBlock(bindingBlock.module)
 
     inline fun with(value: T) {
         with(JustProvider(value))
     }
 
     inline fun with(noinline block: ProviderBlock.() -> T) {
-        with(LambdaProvider(ProviderBlock(), block))
+        with(LambdaProvider(providerBlock(), block))
     }
 
     inline fun withSingleton(provider: Provider<T>) {
@@ -42,20 +44,13 @@ class PartialBindingBlock<T: Any>(
     }
 
     inline fun withSingleton(noinline block: ProviderBlock.() -> T) {
-        with(
-            SingletonProvider(
-                LambdaProvider(
-                    ProviderBlock(),
-                    block
-                )
-            )
-        )
+        with(SingletonProvider(LambdaProvider(providerBlock(), block)))
     }
 }
 
-class ProviderBlock {
+class ProviderBlock(private val module: Module) {
     fun <T: Any> get(bindingKey: BindingKey<T>): T {
-        TODO("implement")
+        return Kadi.getScopeForModule(module).get(bindingKey)
     }
 
     inline fun <reified T: Any> get(identifier: Any = Unit): T =
@@ -63,12 +58,8 @@ class ProviderBlock {
 }
 
 fun module(name: String, allowOverrides: Boolean = false, block: BindingBlock.() -> Unit): Module {
-    val bindingScope = BindingBlock()
-    block.invoke(bindingScope)
-    return Module(
-        name,
-        allowOverrides,
-        bindingScope.importedModules,
-        bindingScope.bindings
-    )
+    val module = Module(name, allowOverrides)
+    val bindingBlock = BindingBlock(module)
+    block.invoke(bindingBlock)
+    return module
 }
