@@ -1,8 +1,20 @@
 package audio.rabid.vinylscrobbler.ui.myalbums
 
-import toothpick.ktp.binding.module
+import dagger.Module
+import dagger.android.AndroidInjector
+import dagger.multibindings.ClassKey
+import dagger.multibindings.IntoMap
+import dagger.Binds
 
-val MyAlbumsModule = module {
 
-//    bind<MyAlbumsViewModel>().toProvider()
+
+@Module //(subcomponents = [MyAlbumsActivity.Compontent::class])
+abstract class MyAlbumsModule {
+
+//    @Binds
+//    @IntoMap
+//    @ClassKey(MyAlbumsActivity::class)
+//    internal abstract fun bindYourAndroidInjectorFactory(factory: MyAlbumsActivity.Compontent.Factory): AndroidInjector.Factory<*>
+
 }
+

@@ -88,12 +88,19 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     testImplementation("androidx.room:room-testing:$roomVersion")
 
+    //Dagger DI
+    implementation("com.google.dagger:dagger:2.25.2")
+    kapt("com.google.dagger:dagger-compiler:2.25.2")
+    implementation("com.google.dagger:dagger-android:2.25.2")
+    implementation("com.google.dagger:dagger-android-support:2.25.2")
+    kapt("com.google.dagger:dagger-android-processor:2.25.2")
+
     // Toothpick (DI)
-    implementation("com.github.stephanenicolas.toothpick:ktp:3.1.0")
-    implementation("com.github.stephanenicolas.toothpick:smoothie-androidx:3.1.0")
-    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-ktp:3.1.0")
-    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-viewmodel-ktp:3.1.0")
-    kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0")
+//    implementation("com.github.stephanenicolas.toothpick:ktp:3.1.0")
+//    implementation("com.github.stephanenicolas.toothpick:smoothie-androidx:3.1.0")
+//    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-ktp:3.1.0")
+//    implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-viewmodel-ktp:3.1.0")
+//    kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0")
     // testimplementation("com.github.stephanenicolas.toothpick:toothpick-testing-junit5:3.1.0")
 
     // Contour - UI

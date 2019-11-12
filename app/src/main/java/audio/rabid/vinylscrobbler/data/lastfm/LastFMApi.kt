@@ -1,39 +1,17 @@
 package audio.rabid.vinylscrobbler.data.lastfm
 
-import okhttp3.OkHttpClient
 import org.json.JSONObject
-import retrofit2.Retrofit
-import retrofit2.create
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
-import toothpick.InjectConstructor
 import java.time.Instant
 import java.util.*
-import javax.inject.Provider
 
 // https://www.last.fm/api/intro
 interface LastFMApi {
 
     companion object {
         const val BASE_URL = "https://ws.audioscrobbler.com/2.0/"
-    }
-
-    @InjectConstructor
-    class Factory(
-        private val retrofitBuilder: Retrofit.Builder,
-        private val okHttpClient: OkHttpClient,
-        private val lastFMAuthenticationInterceptor: LastFMAuthenticationInterceptor
-    ) : Provider<LastFMApi> {
-        override fun get(): LastFMApi {
-            return retrofitBuilder
-                .baseUrl(BASE_URL)
-                .client(okHttpClient.newBuilder()
-                    .addInterceptor(lastFMAuthenticationInterceptor)
-                    .build())
-                .build()
-                .create()
-        }
     }
 
     @POST(BASE_URL)

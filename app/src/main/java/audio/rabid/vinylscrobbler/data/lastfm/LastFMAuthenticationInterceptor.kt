@@ -6,11 +6,12 @@ import okhttp3.Request
 import okhttp3.Response
 import okio.Buffer
 import retrofit2.Invocation
-import toothpick.InjectConstructor
+import javax.inject.Inject
 import javax.inject.Named
+import javax.inject.Singleton
 
-@InjectConstructor
-class LastFMAuthenticationInterceptor(
+@Singleton
+class LastFMAuthenticationInterceptor @Inject constructor(
     @Named("LASTFM_API_KEY") private val apiKey: String,
     @Named("LASTFM_API_SECRET") private val apiSecret: String,
     @Named("USER_AGENT") private val userAgent: String

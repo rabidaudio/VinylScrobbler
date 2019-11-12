@@ -6,11 +6,10 @@ import audio.rabid.vinylscrobbler.core.ActivityScope
 import audio.rabid.vinylscrobbler.core.ViewModel
 import audio.rabid.vinylscrobbler.data.AppDatabase
 import audio.rabid.vinylscrobbler.data.models.Album
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 @ActivityScope
-@InjectConstructor
-class MyAlbumsViewModel(
+class MyAlbumsViewModel @Inject constructor(
     private val appDatabase: AppDatabase
 ) : ViewModel() {
 
