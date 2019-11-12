@@ -31,7 +31,7 @@ class PartialBindingBlock<T: Any>(
 
     fun providerBlock(): ProviderBlock = ProviderBlock(bindingBlock.module)
 
-    inline fun with(value: T) {
+    inline fun toInstance(value: T) {
         with(JustProvider(value))
     }
 

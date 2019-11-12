@@ -9,7 +9,7 @@ class Module internal constructor(
     private val bindings = mutableListOf<Binding<*>>()
 
     internal fun getBindings(): List<Binding<*>> = bindings
-    internal fun getImporedModules(): Set<Module> = importedModules
+    internal fun getImportedModules(): Set<Module> = importedModules
 
     internal fun require(module: Module) {
         importedModules.add(module)

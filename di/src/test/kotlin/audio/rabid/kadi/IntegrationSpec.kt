@@ -4,6 +4,7 @@ import audio.rabid.kadi.Example.Activity1
 import audio.rabid.kadi.Example.Activity1ViewModel
 import audio.rabid.kadi.Example.Activity2
 import audio.rabid.kadi.Example.Activity2ViewModel
+import audio.rabid.kadi.Example.AppModule
 import audio.rabid.kadi.Example.Application
 import audio.rabid.kadi.Example.Database
 import audio.rabid.kadi.Example.Fragment
@@ -15,6 +16,34 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
 class IntegrationSpec : Spek({
+
+    beforeEachTest {
+        Kadi.reset() // TODO should this be a public feature if we want to expose the Root Scope?
+    }
+
+    describe("Everything in root scope") {
+        Kadi.addRootModules(
+            AppModule,
+            module("Inline") {
+                bind<Int>(0).toInstance(0)
+            }
+        )
+        expect(Kadi.get<Int>(0)).to.equal(0)
+        val logger1 = Kadi.get<Logger>()
+        expect(logger1).to.be.an.instanceof(Logger::class.java)
+        val logger2 = Kadi.get<Logger>()
+        expect(logger2).to.be.an.instanceof(Logger::class.java)
+        expect(logger2).not.to.equal(logger1)
+        val database1 = Kadi.get<IDatabase>()
+        expect(database1).to.be.an.instanceof(Database::class.java)
+        val database2 = Kadi.get<IDatabase>()
+        expect(database2).to.be.an.instanceof(Database::class.java)
+        expect(database2).to.equal(database1)
+
+        Kadi.addRootModules(module("Inline2") { bind<String>("foo").toInstance("bar") })
+        expect(Kadi.get<String>("foo")).to.equal("bar")
+        expect(Kadi.get<Int>(0)).to.equal(0)
+    }
 
     describe("Dummy Application") {
 

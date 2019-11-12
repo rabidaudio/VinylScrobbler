@@ -1,7 +1,5 @@
 package audio.rabid.kadi
 
-import kotlin.reflect.KClass
-
 object Example {
 
     class Logger {
@@ -42,7 +40,7 @@ object Example {
     val AppModule = module("App") {
         require(LoggingModule)
         require(DataModule)
-        bind<String>("AppName").with("MyApp")
+        bind<String>("AppName").toInstance("MyApp")
     }
 
 

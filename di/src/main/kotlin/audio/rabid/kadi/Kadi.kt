@@ -6,7 +6,7 @@ import kotlin.reflect.KClass
 
 object Kadi : Scope {
 
-    private val rootScope = ScopeImpl(Kadi::class, null)
+    private var rootScope = ScopeImpl(Kadi, null)
     internal val scopes = mutableMapOf<Any, ScopeImpl>()
 
     @CheckResult
@@ -17,6 +17,13 @@ object Kadi : Scope {
 
     override fun createChildScope(identifier: Any, vararg modules: Module): ChildScope {
         return rootScope.createChildScope(identifier, *modules)
+    }
+
+    fun addRootModules(vararg modules: Module): Kadi {
+        for (module in modules) {
+            rootScope.addModule(module)
+        }
+        return this
     }
 
     override fun <T : Any> get(key: BindingKey<T>): T {
@@ -40,6 +47,12 @@ object Kadi : Scope {
         synchronized(Kadi) {
             getScope(identifier).close()
         }
+    }
+
+
+    internal fun reset() {
+        rootScope.close()
+        rootScope = ScopeImpl(Kadi, null)
     }
 
 //    @CheckResult

@@ -1,7 +1,5 @@
 package audio.rabid.kadi
 
-import kotlin.reflect.KClass
-
 internal class ScopeImpl internal constructor(
     private val key: Any,
     private val parentScope: ScopeImpl?
@@ -53,14 +51,14 @@ internal class ScopeImpl internal constructor(
         }
     }
 
-    private fun addModule(module: Module) {
+    internal fun addModule(module: Module) {
         synchronized(Kadi) {
             if (selfOrParentsContainModule(module)) return
             for (binding in module.getBindings()) {
                 verifyBinding(binding, module.allowOverrides)
                 bindings[binding.key] = binding.copy()
             }
-            for (importedModule in module.getImporedModules()) {
+            for (importedModule in module.getImportedModules()) {
                 addModule(importedModule)
             }
             modules.add(module)
