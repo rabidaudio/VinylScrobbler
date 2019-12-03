@@ -10,6 +10,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
+import audio.rabid.kaddi.Kaddi
+import audio.rabid.kaddi.inject
 import audio.rabid.vinylscrobbler.R
 import audio.rabid.vinylscrobbler.core.ui.BindingRecyclerView
 import audio.rabid.vinylscrobbler.core.ui.bindView
@@ -19,34 +21,20 @@ import audio.rabid.vinylscrobbler.data.models.Album
 import com.squareup.contour.ContourLayout
 import com.squareup.picasso.Picasso
 import okhttp3.HttpUrl
-import javax.inject.Inject
 
 class MyAlbumsActivity : AppCompatActivity() {
 
     private val albumGrid by bindView(::AlbumGridView)
 
-//    private val viewModel by inject<MyAlbumsViewModel>()
-
-//    @Subcomponent
-//    interface Compontent : AndroidInjector<MyAlbumsActivity> {
-////        fun viewModel(): MyAlbumsViewModel
-//
-//        @Subcomponent.Factory
-//        interface Factory : AndroidInjector.Factory<MyAlbumsActivity>
-//    }
-
-    @Inject
-    lateinit var viewModel: MyAlbumsViewModel
+    private val viewModel by inject<MyAlbumsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(albumGrid)
 
-//        KTP.openScopes(ApplicationScope::class.java, this)
-//            .supportScopeAnnotation(ActivityScope::class.java)
-//            .installModules(SmoothieActivityModule(this), MyAlbumsModule)
-//            .closeOnDestroy(this)
-//            .inject(this)
+        Kaddi.getScope(applicationContext)
+            .createChildScope(this, MyAlbumsModule)
+            .inject(this)
     }
 
     override fun onStart() {

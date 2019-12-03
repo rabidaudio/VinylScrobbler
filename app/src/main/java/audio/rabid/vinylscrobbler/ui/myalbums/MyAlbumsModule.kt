@@ -1,20 +1,13 @@
 package audio.rabid.vinylscrobbler.ui.myalbums
 
-import dagger.Module
-import dagger.android.AndroidInjector
-import dagger.multibindings.ClassKey
-import dagger.multibindings.IntoMap
-import dagger.Binds
+import audio.rabid.kaddi.dsl.*
+import audio.rabid.vinylscrobbler.data.AppDatabase
 
 
+val MyAlbumsModule = module("MyAlbums") {
 
-@Module //(subcomponents = [MyAlbumsActivity.Compontent::class])
-abstract class MyAlbumsModule {
-
-//    @Binds
-//    @IntoMap
-//    @ClassKey(MyAlbumsActivity::class)
-//    internal abstract fun bindYourAndroidInjectorFactory(factory: MyAlbumsActivity.Compontent.Factory): AndroidInjector.Factory<*>
-
+    require<AppDatabase>()
+    bind<MyAlbumsViewModel>().withSingleton {
+        MyAlbumsViewModel(appDatabase = instance())
+    }
 }
-

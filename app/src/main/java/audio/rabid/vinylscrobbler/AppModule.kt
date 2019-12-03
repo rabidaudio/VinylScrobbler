@@ -1,8 +1,9 @@
 package audio.rabid.vinylscrobbler
 
+import audio.rabid.kaddi.dsl.module
 import audio.rabid.vinylscrobbler.data.DataModule
-import dagger.Module
 
-
-@Module(includes = [DataModule::class])
-class AppModule
+val AppModule = module("App") {
+    import(DataModule)
+    import(DebuggingModule)
+}
