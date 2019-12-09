@@ -59,6 +59,11 @@ class AddAlbumActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        Kaddi.closeScope(this)
+        super.onDestroy()
+    }
+
     class AddAlbumView(context: Context) : CustomView(context) {
 
         val searchView = FloatingSearchView(context).apply {

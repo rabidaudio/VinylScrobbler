@@ -110,9 +110,11 @@ dependencies {
     implementation("com.github.arimorty:floatingsearchview:2.1.1")
 
     // Debugging Utils
-    debugImplementation("com.facebook.flipper:flipper:0.27.0")
+    debugImplementation("com.facebook.flipper:flipper:0.30.0")
     debugImplementation("com.facebook.soloader:soloader:0.8.0")
+    debugImplementation("com.facebook.flipper:flipper-network-plugin:0.30.0")
     debugImplementation("com.squareup.leakcanary:leakcanary-android:1.6.3")
+    debugImplementation("com.facebook.flipper:flipper-leakcanary-plugin:0.30.0")
 
     // Testing
     androidTestImplementation("androidx.test:runner:1.2.0")

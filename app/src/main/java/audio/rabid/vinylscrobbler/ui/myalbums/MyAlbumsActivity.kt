@@ -60,6 +60,11 @@ class MyAlbumsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        Kaddi.closeScope(this)
+        super.onDestroy()
+    }
+
     class AlbumGridView(context: Context) : BindingRecyclerView<Album, AlbumView>(context) {
 
         init {
