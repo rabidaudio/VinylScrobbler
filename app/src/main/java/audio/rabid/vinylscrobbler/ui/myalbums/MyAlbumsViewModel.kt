@@ -3,8 +3,8 @@ package audio.rabid.vinylscrobbler.ui.myalbums
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import audio.rabid.vinylscrobbler.core.ViewModel
-import audio.rabid.vinylscrobbler.data.AppDatabase
-import audio.rabid.vinylscrobbler.data.models.Album
+import audio.rabid.vinylscrobbler.data.db.AppDatabase
+import audio.rabid.vinylscrobbler.data.db.models.Album
 
 class MyAlbumsViewModel(
     private val appDatabase: AppDatabase

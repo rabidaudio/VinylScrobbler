@@ -1,6 +1,7 @@
 package audio.rabid.vinylscrobbler.data.lastfm
 
 import audio.rabid.kaddi.dsl.*
+import audio.rabid.kaddi.instance
 import audio.rabid.vinylscrobbler.BuildConfig
 import audio.rabid.vinylscrobbler.core.adapters.IntegerBoolean
 import audio.rabid.vinylscrobbler.data.MoshiModule

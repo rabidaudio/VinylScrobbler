@@ -15,7 +15,7 @@ class LastFMAuthenticationInterceptor(
 
     private var sessionKey: String? = null
 
-    override fun setSession(session: AuthGetMobileSessionResponse) {
+    override fun setSession(session: LastFM.AuthGetMobileSessionResponse) {
         sessionKey = session.sessionKey
     }
 

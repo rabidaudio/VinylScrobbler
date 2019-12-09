@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler.data
+package audio.rabid.vinylscrobbler.data.db
 
 import android.content.Context
 import androidx.room.Database
@@ -7,8 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import audio.rabid.vinylscrobbler.core.adapters.HttpUrlAdapter
 import audio.rabid.vinylscrobbler.core.adapters.InstantAdapter
+import audio.rabid.vinylscrobbler.core.adapters.LocalDateAdapter
 import audio.rabid.vinylscrobbler.core.adapters.UUIDAdapter
-import audio.rabid.vinylscrobbler.data.models.Album
+import audio.rabid.vinylscrobbler.data.db.models.Album
 
 @Database(
     entities = [Album::class],
@@ -17,7 +18,8 @@ import audio.rabid.vinylscrobbler.data.models.Album
 @TypeConverters(
     HttpUrlAdapter::class,
     UUIDAdapter::class,
-    InstantAdapter::class
+    InstantAdapter::class,
+    LocalDateAdapter::class
 )
 abstract class AppDatabase : RoomDatabase() {
 

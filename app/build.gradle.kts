@@ -5,13 +5,17 @@ import java.time.format.DateTimeFormatter
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
     kotlin("kapt")
     id("okreplay")
     id("com.getkeepsafe.dexcount")
 }
 
 val appVersion = "1.0"
+
+fun dateVersionCode(): Int {
+    return DateTimeFormatter.ofPattern("yyyyMMdd")
+        .format(Instant.now().atZone(ZoneId.systemDefault())).toInt()
+}
 
 android {
     compileSdkVersion(29)
@@ -20,7 +24,7 @@ android {
         applicationId = "audio.rabid.vinylscrobbler"
         minSdkVersion(26)
         targetSdkVersion(29)
-        versionCode = DateTimeFormatter.ofPattern("yyyyMMdd").format(Instant.now().atZone(ZoneId.systemDefault())).toInt()
+        versionCode = dateVersionCode()
         versionName = appVersion
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -28,7 +32,10 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = mapOf("room.incremental" to "true")
+                arguments = mapOf(
+                    "room.incremental" to "true",
+                    "room.schemaLocation" to "$projectDir/schemas"
+                )
             }
         }
     }
@@ -58,8 +65,8 @@ dexcount {
 }
 
 repositories {
+    // used by contour
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
-//    mavenLocal() // STOPSHIP
 }
 
 dependencies {
@@ -73,7 +80,7 @@ dependencies {
     // Support
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc02")
 
@@ -90,21 +97,21 @@ dependencies {
     testImplementation("androidx.room:room-testing:$roomVersion")
 
     // Kaddi - DI
-    implementation("com.github.rabidaudio.kaddi:kaddi-dsl:e988cf5")
+    implementation("com.github.rabidaudio.kaddi:kaddi-dsl:3aee32b")
 //    implementation("audio.rabid.kaddi:kaddi-dsl:0.0.1")
 
     // Contour - UI
     implementation("app.cash.contour:contour:0.1.5-SNAPSHOT")
+    // DSL for shape drawables
+    implementation("com.github.infotech-group:android-drawable-dsl:0.3.0")
 
     // UI Utils
     implementation("com.squareup.picasso:picasso:2.71828")
-
-    // implementation("org.hihn:musicbrainzws2-java:3.0.15")
+    implementation("com.github.arimorty:floatingsearchview:2.1.1")
 
     // Debugging Utils
     debugImplementation("com.facebook.flipper:flipper:0.27.0")
     debugImplementation("com.facebook.soloader:soloader:0.8.0")
-//    releaseImplementation("com.facebook.flipper:flipper-noop:0.27.0")
     debugImplementation("com.squareup.leakcanary:leakcanary-android:1.6.3")
 
     // Testing

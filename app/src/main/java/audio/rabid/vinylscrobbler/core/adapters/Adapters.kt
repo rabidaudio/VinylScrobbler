@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
 import okhttp3.HttpUrl
 import java.time.Instant
+import java.time.LocalDate
 import java.util.*
 
 class HttpUrlAdapter {
@@ -37,6 +38,16 @@ class InstantAdapter {
     @TypeConverter
     @FromJson
     fun fromJson(dateString: String?): Instant? = dateString?.let { Instant.parse(it) }
+}
+
+class LocalDateAdapter {
+    @TypeConverter
+    @ToJson
+    fun toJson(date: LocalDate?): String? = date?.toString()
+
+    @TypeConverter
+    @FromJson
+    fun fromJson(dateString: String?): LocalDate? = dateString?.let { LocalDate.parse(it) }
 }
 
 @JsonQualifier

@@ -1,6 +1,8 @@
 package audio.rabid.vinylscrobbler.data
 
 import audio.rabid.kaddi.dsl.*
+import audio.rabid.kaddi.instance
+import audio.rabid.kaddi.setInstance
 import audio.rabid.vinylscrobbler.core.adapters.JSONObjectConverterFactory
 import com.squareup.moshi.Moshi
 import okhttp3.Interceptor

@@ -1,7 +1,8 @@
 package audio.rabid.vinylscrobbler.ui.myalbums
 
 import audio.rabid.kaddi.dsl.*
-import audio.rabid.vinylscrobbler.data.AppDatabase
+import audio.rabid.kaddi.instance
+import audio.rabid.vinylscrobbler.data.db.AppDatabase
 
 
 val MyAlbumsModule = module("MyAlbums") {

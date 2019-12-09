@@ -1,0 +1,1543 @@
+{
+    "created": "2019-12-08T23:22:53.567Z",
+    "count": 30,
+    "offset": 0,
+    "releases": [
+        {
+            "id": "fb020599-a774-4ed1-a5cc-f701cd4848c3",
+            "score": 100,
+            "count": 2,
+            "title": "Naughty Marietta",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "joinphrase": "; ",
+                    "name": "Victor Herbert",
+                    "artist": {
+                        "id": "717d1c41-76a2-4203-9f36-f5d2dc873cc6",
+                        "name": "Victor Herbert",
+                        "sort-name": "Herbert, Victor",
+                        "disambiguation": "composer"
+                    }
+                },
+                {
+                    "joinphrase": ", ",
+                    "name": "Ohio Light Opera",
+                    "artist": {
+                        "id": "23ec3832-9ddd-4c7f-bdea-985edde7a5d0",
+                        "name": "Ohio Light Opera Orchestra",
+                        "sort-name": "Ohio Light Opera Orchestra"
+                    }
+                },
+                {
+                    "name": "Steven Byess",
+                    "artist": {
+                        "id": "82076596-be66-4599-8213-0a0da3cbde50",
+                        "name": "Steven Byess",
+                        "sort-name": "Byess, Steven"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "8b6078fa-ee72-39cd-918d-f7be16ebfbc2",
+                "type-id": "6fd474e2-6b58-3102-9d17-d6f7eb7da0a0",
+                "title": "Naughty Marietta",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Live"
+                ]
+            },
+            "date": "2001",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "2001",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "034061043225",
+            "asin": "B000059T2C",
+            "label-info": [
+                {
+                    "catalog-number": "TROY 432",
+                    "label": {
+                        "id": "4ea925d3-6686-4887-8cdc-88d0fdea2104",
+                        "name": "Albany Records"
+                    }
+                }
+            ],
+            "track-count": 31,
+            "media": [
+                {
+                    "format": "CD",
+                    "disc-count": 1,
+                    "track-count": 14
+                },
+                {
+                    "format": "CD",
+                    "disc-count": 1,
+                    "track-count": 17
+                }
+            ],
+            "tags": [
+                {
+                    "count": 1,
+                    "name": "classical"
+                },
+                {
+                    "count": 1,
+                    "name": "opera"
+                }
+            ]
+        },
+        {
+            "id": "6f9a92ad-467b-4eee-83fb-4eef1bdc0d64",
+            "score": 100,
+            "count": 1,
+            "title": "Naughty Marietta",
+            "status": "Official",
+            "disambiguation": "1954 studio cast",
+            "packaging": {
+                "id": "f7101ce3-0384-39ce-9fde-fbbd0044d35f",
+                "name": "Cardboard/Paper Sleeve"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Victor Herbert",
+                    "artist": {
+                        "id": "717d1c41-76a2-4203-9f36-f5d2dc873cc6",
+                        "name": "Victor Herbert",
+                        "sort-name": "Herbert, Victor",
+                        "disambiguation": "composer"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "56af5eb5-a4a2-4230-b7e9-7b4ed6562ebd",
+                "type-id": "22a628ad-c082-3c4f-b1b6-d41665107b88",
+                "title": "Naughty Marietta",
+                "disambiguation": "1954 studio cast",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Soundtrack"
+                ]
+            },
+            "date": "1954",
+            "country": "AU",
+            "release-events": [
+                {
+                    "date": "1954",
+                    "area": {
+                        "id": "106e0bec-b638-3b37-b731-f53d507dc00e",
+                        "name": "Australia",
+                        "sort-name": "Australia",
+                        "iso-3166-1-codes": [
+                            "AU"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "CLC-030",
+                    "label": {
+                        "id": "abea2d3e-eabf-4480-ab24-9382dd642c73",
+                        "name": "Capitol Records"
+                    }
+                }
+            ],
+            "track-count": 13,
+            "media": [
+                {
+                    "format": "10\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 13
+                }
+            ]
+        },
+        {
+            "id": "55f73bad-b9d4-4b55-bf2c-e09a83898d7b",
+            "score": 100,
+            "count": 1,
+            "title": "Naughty Marietta",
+            "status": "Official",
+            "disambiguation": "1954 studio cast",
+            "packaging": {
+                "id": "f7101ce3-0384-39ce-9fde-fbbd0044d35f",
+                "name": "Cardboard/Paper Sleeve"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Victor Herbert",
+                    "artist": {
+                        "id": "717d1c41-76a2-4203-9f36-f5d2dc873cc6",
+                        "name": "Victor Herbert",
+                        "sort-name": "Herbert, Victor",
+                        "disambiguation": "composer"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "56af5eb5-a4a2-4230-b7e9-7b4ed6562ebd",
+                "type-id": "22a628ad-c082-3c4f-b1b6-d41665107b88",
+                "title": "Naughty Marietta",
+                "disambiguation": "1954 studio cast",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Soundtrack"
+                ]
+            },
+            "date": "1954",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "1954",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "L-468",
+                    "label": {
+                        "id": "abea2d3e-eabf-4480-ab24-9382dd642c73",
+                        "name": "Capitol Records"
+                    }
+                }
+            ],
+            "track-count": 13,
+            "media": [
+                {
+                    "format": "10\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 13
+                }
+            ]
+        },
+        {
+            "id": "cbbaa426-6bdc-40d2-a9c2-366bf8ee0a80",
+            "score": 100,
+            "count": 2,
+            "title": "Naughty Marietta",
+            "status": "Official",
+            "disambiguation": "1954 studio cast",
+            "packaging": {
+                "id": "f7101ce3-0384-39ce-9fde-fbbd0044d35f",
+                "name": "Cardboard/Paper Sleeve"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Victor Herbert",
+                    "artist": {
+                        "id": "717d1c41-76a2-4203-9f36-f5d2dc873cc6",
+                        "name": "Victor Herbert",
+                        "sort-name": "Herbert, Victor",
+                        "disambiguation": "composer"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "56af5eb5-a4a2-4230-b7e9-7b4ed6562ebd",
+                "type-id": "22a628ad-c082-3c4f-b1b6-d41665107b88",
+                "title": "Naughty Marietta",
+                "disambiguation": "1954 studio cast",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Soundtrack"
+                ]
+            },
+            "date": "1954",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "1954",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "FBF-468",
+                    "label": {
+                        "id": "abea2d3e-eabf-4480-ab24-9382dd642c73",
+                        "name": "Capitol Records"
+                    }
+                }
+            ],
+            "track-count": 14,
+            "media": [
+                {
+                    "format": "7\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 7
+                },
+                {
+                    "format": "7\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 7
+                }
+            ]
+        },
+        {
+            "id": "27982ae4-3d9d-4a90-922b-a8e51d814700",
+            "score": 78,
+            "count": 1,
+            "title": "Marietta, Georgia: The Album",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Kyle Lucas",
+                    "artist": {
+                        "id": "ac3e63f9-2e67-4d79-aaa8-a07b50189d82",
+                        "name": "Kyle Lucas",
+                        "sort-name": "Lucas, Kyle",
+                        "disambiguation": "Rapper"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "a32245ea-1493-44ab-ab5f-f36130e52efc",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Marietta, Georgia: The Album",
+                "primary-type": "Album"
+            },
+            "date": "2015-09-18",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "2015-09-18",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "label-info": [
+                {
+                    "label": {
+                        "id": "157afde4-4bf5-4039-8ad2-5a15acc85176",
+                        "name": "[no label]"
+                    }
+                }
+            ],
+            "track-count": 14,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 14
+                }
+            ]
+        },
+        {
+            "id": "43dc1ac1-7f2c-450d-aa1d-de6a29dd4967",
+            "score": 70,
+            "count": 1,
+            "title": "My Name Is Marietta Cashman",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Hannah M.G. Shapero",
+                    "artist": {
+                        "id": "8e408047-0b0f-46c9-a4ab-ec4737e72830",
+                        "name": "Hannah M.G. Shapero",
+                        "sort-name": "Shapero, Hannah M.G."
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "8ce52381-6d89-4729-b2e5-e3d23fd48c2d",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "My Name Is Marietta Cashman",
+                "primary-type": "Album"
+            },
+            "track-count": 5,
+            "media": [
+                {
+                    "disc-count": 0,
+                    "track-count": 5
+                }
+            ]
+        },
+        {
+            "id": "85d3d0d1-fb3e-472b-b7e3-aaba32213883",
+            "score": 70,
+            "count": 1,
+            "title": "Fear and Loathing in Marietta",
+            "artist-credit": [
+                {
+                    "name": "Kyle Lucas",
+                    "artist": {
+                        "id": "ac3e63f9-2e67-4d79-aaa8-a07b50189d82",
+                        "name": "Kyle Lucas",
+                        "sort-name": "Lucas, Kyle",
+                        "disambiguation": "Rapper"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "d6e8a133-fd7c-4a8a-8f36-fa7e399db1b1",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Fear and Loathing in Marietta",
+                "primary-type": "Album"
+            },
+            "date": "",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 10,
+            "media": [
+                {
+                    "disc-count": 0,
+                    "track-count": 10
+                }
+            ]
+        },
+        {
+            "id": "8057cbf4-bc0c-41e1-b57f-fa1e7a340a9b",
+            "score": 70,
+            "count": 1,
+            "title": "It's Always Sunny in Marietta",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng"
+            },
+            "artist-credit": [
+                {
+                    "name": "Kyle Lucas",
+                    "artist": {
+                        "id": "ac3e63f9-2e67-4d79-aaa8-a07b50189d82",
+                        "name": "Kyle Lucas",
+                        "sort-name": "Lucas, Kyle",
+                        "disambiguation": "Rapper"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "a2df32a2-0dfb-4455-83e7-f5bab1bc942a",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "It's Always Sunny in Marietta",
+                "primary-type": "Album"
+            },
+            "date": "",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 27,
+            "media": [
+                {
+                    "disc-count": 0,
+                    "track-count": 27
+                }
+            ]
+        },
+        {
+            "id": "19e5893a-9e82-4374-bc49-a073b2a42558",
+            "score": 64,
+            "count": 1,
+            "title": "It's Always Sunny In Marietta 2",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng"
+            },
+            "artist-credit": [
+                {
+                    "name": "Kyle Lucas",
+                    "artist": {
+                        "id": "ac3e63f9-2e67-4d79-aaa8-a07b50189d82",
+                        "name": "Kyle Lucas",
+                        "sort-name": "Lucas, Kyle",
+                        "disambiguation": "Rapper"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "f65ca0c9-41ea-434c-8dc2-51c447c5c599",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "It's Always Sunny In Marietta 2",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Mixtape/Street"
+                ]
+            },
+            "date": "2013-04-11",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2013-04-11",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "label-info": [
+                {
+                    "label": {
+                        "id": "157afde4-4bf5-4039-8ad2-5a15acc85176",
+                        "name": "[no label]"
+                    }
+                }
+            ],
+            "track-count": 18,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 18
+                }
+            ]
+        },
+        {
+            "id": "654e11ea-52b3-424b-96e9-935005aa932c",
+            "score": 64,
+            "count": 1,
+            "title": "The Red Mill / Naughty Marietta",
+            "status": "Official",
+            "disambiguation": "1954 studio casts",
+            "packaging": {
+                "id": "f7101ce3-0384-39ce-9fde-fbbd0044d35f",
+                "name": "Cardboard/Paper Sleeve"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Victor Herbert",
+                    "artist": {
+                        "id": "717d1c41-76a2-4203-9f36-f5d2dc873cc6",
+                        "name": "Victor Herbert",
+                        "sort-name": "Herbert, Victor",
+                        "disambiguation": "composer"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "e425afb6-4772-4c5d-8899-0eb630385558",
+                "type-id": "22a628ad-c082-3c4f-b1b6-d41665107b88",
+                "title": "The Red Mill / Naughty Marietta",
+                "disambiguation": "1954/1955 studio casts",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Soundtrack"
+                ]
+            },
+            "date": "1955",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "1955",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "T-551",
+                    "label": {
+                        "id": "abea2d3e-eabf-4480-ab24-9382dd642c73",
+                        "name": "Capitol Records"
+                    }
+                }
+            ],
+            "track-count": 26,
+            "media": [
+                {
+                    "format": "10\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 26
+                }
+            ]
+        },
+        {
+            "id": "6c08b72b-19dd-45cd-96e3-141eb6993911",
+            "score": 64,
+            "count": 1,
+            "title": "Summer Death",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "7a67ab51-650e-4143-a8e3-fa8e21ed08b6",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Indie emo/punk band from Philadelphia"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "fce9b0b5-b5bf-42c8-87b3-0e5a6fa34a55",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Summer Death",
+                "primary-type": "Album"
+            },
+            "date": "2013-10-21",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2013-10-21",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 8,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 8
+                }
+            ]
+        },
+        {
+            "id": "161ee9b7-4f5b-448c-a042-74da71595f97",
+            "score": 64,
+            "count": 1,
+            "title": "Basement Dreams Are the Bedroom Cream",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "bb787ae2-81b0-4590-be39-91be6afecccb",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "French artist Guillaume Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "a373cf68-2cd8-4faa-8b29-3ffa08b101dd",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Basement Dreams Are the Bedroom Cream",
+                "primary-type": "Album"
+            },
+            "date": "2015-05-04",
+            "country": "DE",
+            "release-events": [
+                {
+                    "date": "2015-05-04",
+                    "area": {
+                        "id": "85752fda-13c4-31a3-bee5-0e5cb1f51dad",
+                        "name": "Germany",
+                        "sort-name": "Germany",
+                        "iso-3166-1-codes": [
+                            "DE"
+                        ]
+                    }
+                }
+            ],
+            "label-info": [
+                {
+                    "label": {
+                        "id": "c82f5a52-138e-46b0-b359-acab96b71ce6",
+                        "name": "Born Bad Records"
+                    }
+                }
+            ],
+            "track-count": 10,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 10
+                }
+            ]
+        },
+        {
+            "id": "e7472e2d-0336-4296-9d98-edcb9ae98533",
+            "score": 64,
+            "count": 1,
+            "title": "Fire and Ice (12\" special ski dance mix)",
+            "status": "Official",
+            "packaging": {
+                "id": "f7101ce3-0384-39ce-9fde-fbbd0044d35f",
+                "name": "Cardboard/Paper Sleeve"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "8c3ecdb6-21d9-4fd2-960c-014bef8d5658",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Marietta Waters"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "d0badca5-bc6d-40ab-892d-fc278a049369",
+                "type-id": "d6038452-8ee0-3f68-affc-2de9a1ede0b9",
+                "title": "Fire and Ice",
+                "primary-type": "Single"
+            },
+            "date": "1986",
+            "country": "DE",
+            "release-events": [
+                {
+                    "date": "1986",
+                    "area": {
+                        "id": "85752fda-13c4-31a3-bee5-0e5cb1f51dad",
+                        "name": "Germany",
+                        "sort-name": "Germany",
+                        "iso-3166-1-codes": [
+                            "DE"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "A 12.6827",
+                    "label": {
+                        "id": "b8d33bec-92cc-40d9-bd92-4eb089b401a9",
+                        "name": "CBS"
+                    }
+                }
+            ],
+            "track-count": 3,
+            "media": [
+                {
+                    "format": "12\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 3
+                }
+            ]
+        },
+        {
+            "id": "b5eb2d6c-a719-4f86-b983-bc18e70d13a9",
+            "score": 64,
+            "count": 1,
+            "title": "La Passagère",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "bb787ae2-81b0-4590-be39-91be6afecccb",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "French artist Guillaume Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "2179937a-f5b7-4a65-b43d-e407ee766307",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "La Passagère",
+                "primary-type": "Album"
+            },
+            "date": "2017-08-25",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2017-08-25",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "label": {
+                        "id": "c82f5a52-138e-46b0-b359-acab96b71ce6",
+                        "name": "Born Bad Records"
+                    }
+                }
+            ],
+            "track-count": 9,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 9
+                }
+            ]
+        },
+        {
+            "id": "720c8d57-f019-4abc-8e40-befccfa6c5ad",
+            "score": 64,
+            "count": 1,
+            "title": "As It Were",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "7a67ab51-650e-4143-a8e3-fa8e21ed08b6",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Indie emo/punk band from Philadelphia"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "35390b79-5dff-4ce7-bcc9-35492f256748",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "As It Were",
+                "primary-type": "Album"
+            },
+            "date": "2015-08-17",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2015-08-17",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 11,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 11
+                }
+            ],
+            "tags": [
+                {
+                    "count": 1,
+                    "name": "pop punk"
+                },
+                {
+                    "count": 1,
+                    "name": "punk"
+                },
+                {
+                    "count": 1,
+                    "name": "emo"
+                },
+                {
+                    "count": 1,
+                    "name": "indie"
+                }
+            ]
+        },
+        {
+            "id": "3d01dec9-071f-4c96-9378-6e7f6a4d96b7",
+            "score": 64,
+            "count": 1,
+            "title": "Summer Death",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "7a67ab51-650e-4143-a8e3-fa8e21ed08b6",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Indie emo/punk band from Philadelphia"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "fce9b0b5-b5bf-42c8-87b3-0e5a6fa34a55",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Summer Death",
+                "primary-type": "Album"
+            },
+            "date": "2018-10-21",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2018-10-21",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 8,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 8
+                }
+            ]
+        },
+        {
+            "id": "9dcc4ed3-ff2d-40cd-bc68-e6e204164bf1",
+            "score": 64,
+            "count": 1,
+            "title": "Fire and Ice",
+            "status": "Official",
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "8c3ecdb6-21d9-4fd2-960c-014bef8d5658",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Marietta Waters"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "d0badca5-bc6d-40ab-892d-fc278a049369",
+                "type-id": "d6038452-8ee0-3f68-affc-2de9a1ede0b9",
+                "title": "Fire and Ice",
+                "primary-type": "Single"
+            },
+            "date": "1986",
+            "country": "DE",
+            "release-events": [
+                {
+                    "date": "1986",
+                    "area": {
+                        "id": "85752fda-13c4-31a3-bee5-0e5cb1f51dad",
+                        "name": "Germany",
+                        "sort-name": "Germany",
+                        "iso-3166-1-codes": [
+                            "DE"
+                        ]
+                    }
+                }
+            ],
+            "label-info": [
+                {
+                    "catalog-number": "CBS A 12.6827",
+                    "label": {
+                        "id": "b8d33bec-92cc-40d9-bd92-4eb089b401a9",
+                        "name": "CBS"
+                    }
+                },
+                {
+                    "catalog-number": "A 12.6827",
+                    "label": {
+                        "id": "b8d33bec-92cc-40d9-bd92-4eb089b401a9",
+                        "name": "CBS"
+                    }
+                },
+                {
+                    "catalog-number": "CBSA 12.6827",
+                    "label": {
+                        "id": "b8d33bec-92cc-40d9-bd92-4eb089b401a9",
+                        "name": "CBS"
+                    }
+                }
+            ],
+            "track-count": 3,
+            "media": [
+                {
+                    "format": "12\" Vinyl",
+                    "disc-count": 0,
+                    "track-count": 3
+                }
+            ]
+        },
+        {
+            "id": "f68283b3-7b38-4da3-9aea-9254fda4e2bc",
+            "score": 63,
+            "count": 1,
+            "title": "Мечта-дорога",
+            "status": "Official",
+            "text-representation": {
+                "language": "rus",
+                "script": "Cyrl"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+                        "name": "Мариетта",
+                        "sort-name": "Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "bdc8da98-c89e-4b40-b9b6-10089fffa67d",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Мечта-дорога",
+                "primary-type": "Album"
+            },
+            "track-count": 11,
+            "media": [
+                {
+                    "disc-count": 0,
+                    "track-count": 11
+                }
+            ]
+        },
+        {
+            "id": "2ce408a5-4451-4963-aec4-5b3096d4853a",
+            "score": 60,
+            "count": 1,
+            "title": "Symphony in F-sharp / Einfache Lieder / Mariettas Lied",
+            "status": "Official",
+            "text-representation": {
+                "language": "mul",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "joinphrase": "; ",
+                    "name": "Korngold",
+                    "artist": {
+                        "id": "71b79646-5a0c-465b-b4da-e26af5120165",
+                        "name": "Erich Wolfgang Korngold",
+                        "sort-name": "Korngold, Erich Wolfgang"
+                    }
+                },
+                {
+                    "joinphrase": ", ",
+                    "name": "The Philadelphia Orchestra",
+                    "artist": {
+                        "id": "ff3fcff7-6c85-49d6-b954-ed7011a44e5a",
+                        "name": "The Philadelphia Orchestra",
+                        "sort-name": "Philadelphia Orchestra, The"
+                    }
+                },
+                {
+                    "joinphrase": ", ",
+                    "name": "Franz Welser‐Möst",
+                    "artist": {
+                        "id": "bf039fcb-9617-4e16-81a0-0ae8ae86a839",
+                        "name": "Franz Welser‐Möst",
+                        "sort-name": "Welser‐Möst, Franz",
+                        "disambiguation": "conductor"
+                    }
+                },
+                {
+                    "name": "Barbara Hendricks",
+                    "artist": {
+                        "id": "21b3c493-68fd-4d56-bd93-bed911d21de5",
+                        "name": "Barbara Hendricks",
+                        "sort-name": "Hendricks, Barbara",
+                        "disambiguation": "soprano"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "ad23e195-ba7e-41fb-bf91-a4ac0b80de8f",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Symphony in F-sharp / Einfache Lieder / Mariettas Lied",
+                "primary-type": "Album"
+            },
+            "date": "1996",
+            "country": "GB",
+            "release-events": [
+                {
+                    "date": "1996",
+                    "area": {
+                        "id": "8a754a16-0027-3a29-b6d7-2b40ea0481ed",
+                        "name": "United Kingdom",
+                        "sort-name": "United Kingdom",
+                        "iso-3166-1-codes": [
+                            "GB"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "724355616920",
+            "asin": "B000002RWV",
+            "label-info": [
+                {
+                    "catalog-number": "7243 5 56169 2 0",
+                    "label": {
+                        "id": "f3b662ac-d029-4c87-a9bd-2f2f65b21e4f",
+                        "name": "EMI Classics"
+                    }
+                }
+            ],
+            "track-count": 9,
+            "media": [
+                {
+                    "format": "CD",
+                    "disc-count": 1,
+                    "track-count": 9
+                }
+            ]
+        },
+        {
+            "id": "69655928-2de8-45f9-bf31-44887be8d447",
+            "score": 58,
+            "count": 1,
+            "title": "Études-tableaux (1-17), Preludes (18) (disc 1)(Nikolai Lugansky [1-17], Marietta Petkova [18])",
+            "status": "Official",
+            "text-representation": {
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Сергей Васильевич Рахманинов",
+                    "artist": {
+                        "id": "44b16e44-da77-4580-b851-0d765904573e",
+                        "name": "Сергей Васильевич Рахманинов",
+                        "sort-name": "Rachmaninoff, Sergei Vasilievich"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "ff43c0e7-86d9-4f76-8622-98e726b417c6",
+                "type-id": "dd2a21e1-0c00-3729-a7a0-de60b84eb5d1",
+                "title": "Études-tableaux / Preludes (complete)",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Compilation"
+                ]
+            },
+            "track-count": 18,
+            "media": [
+                {
+                    "disc-count": 1,
+                    "track-count": 18
+                }
+            ]
+        },
+        {
+            "id": "ae45b8c6-1fab-4a3d-89bc-d3a4a74d655d",
+            "score": 58,
+            "count": 1,
+            "title": "2014-07-26: Live at 120 Tavern & Music Hall, Marietta, GA, USA",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "The Bitteroots",
+                    "artist": {
+                        "id": "6118a3fa-fae8-47f1-b778-4f749ccfd02c",
+                        "name": "The Bitteroots",
+                        "sort-name": "Bitteroots, The"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "4093876d-d1fe-47ec-af75-388f83c26f59",
+                "type-id": "6fd474e2-6b58-3102-9d17-d6f7eb7da0a0",
+                "title": "2014-07-26: Live at 120 Tavern & Music Hall, Marietta, GA, USA",
+                "primary-type": "Album",
+                "secondary-types": [
+                    "Live"
+                ]
+            },
+            "date": "2014-10-07",
+            "country": "US",
+            "release-events": [
+                {
+                    "date": "2014-10-07",
+                    "area": {
+                        "id": "489ce91b-6658-3307-9877-795b68554c98",
+                        "name": "United States",
+                        "sort-name": "United States",
+                        "iso-3166-1-codes": [
+                            "US"
+                        ]
+                    }
+                }
+            ],
+            "track-count": 8,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 8
+                }
+            ]
+        },
+        {
+            "id": "764a0176-5fee-4e74-ba9b-e1938e72706c",
+            "score": 52,
+            "count": 1,
+            "title": "Try a Little Romance",
+            "status": "Official",
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta Fafouti",
+                    "artist": {
+                        "id": "5eb71dff-108d-411c-985e-b6e2d31099c0",
+                        "name": "Marietta Fafouti",
+                        "sort-name": "Fafouti, Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "50feacb5-12f8-42ff-b6de-0b95aff06ecb",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Try a Little Romance",
+                "primary-type": "Album"
+            },
+            "date": "2010-10",
+            "country": "GR",
+            "release-events": [
+                {
+                    "date": "2010-10",
+                    "area": {
+                        "id": "803db0ca-b6ed-3bbc-aeb8-f89efd0a2168",
+                        "name": "Greece",
+                        "sort-name": "Greece",
+                        "iso-3166-1-codes": [
+                            "GR"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "5200347700457",
+            "label-info": [
+                {
+                    "catalog-number": "INN026",
+                    "label": {
+                        "id": "e549fb98-7df8-46c0-9b34-3c2fb8c2434a",
+                        "name": "Inner Ear"
+                    }
+                }
+            ],
+            "track-count": 11,
+            "media": [
+                {
+                    "format": "CD",
+                    "disc-count": 0,
+                    "track-count": 11
+                }
+            ]
+        },
+        {
+            "id": "85e3ca45-6447-4235-9e76-3db78325bfa5",
+            "score": 52,
+            "count": 1,
+            "title": "Homemade Joy",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "name": "Marietta Fafouti",
+                    "artist": {
+                        "id": "5eb71dff-108d-411c-985e-b6e2d31099c0",
+                        "name": "Marietta Fafouti",
+                        "sort-name": "Fafouti, Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "c939d084-59a2-4de0-9f1e-06fa9c1ca0f1",
+                "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+                "title": "Homemade Joy",
+                "primary-type": "Album"
+            },
+            "date": "2012-05-28",
+            "country": "DE",
+            "release-events": [
+                {
+                    "date": "2012-05-28",
+                    "area": {
+                        "id": "85752fda-13c4-31a3-bee5-0e5cb1f51dad",
+                        "name": "Germany",
+                        "sort-name": "Germany",
+                        "iso-3166-1-codes": [
+                            "DE"
+                        ]
+                    }
+                }
+            ],
+            "label-info": [
+                {
+                    "label": {
+                        "id": "e549fb98-7df8-46c0-9b34-3c2fb8c2434a",
+                        "name": "Inner Ear"
+                    }
+                }
+            ],
+            "track-count": 10,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 10
+                }
+            ]
+        },
+        {
+            "id": "41e4f543-41a4-45f4-9c19-a4fc18718d64",
+            "score": 44,
+            "count": 1,
+            "title": "Couples Therapy",
+            "status": "Official",
+            "packaging": {
+                "id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+                "name": "None"
+            },
+            "text-representation": {
+                "language": "eng",
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "joinphrase": " / ",
+                    "name": "Marietta",
+                    "artist": {
+                        "id": "7a67ab51-650e-4143-a8e3-fa8e21ed08b6",
+                        "name": "Marietta",
+                        "sort-name": "Marietta",
+                        "disambiguation": "Indie emo/punk band from Philadelphia"
+                    }
+                },
+                {
+                    "name": "Modern Baseball",
+                    "artist": {
+                        "id": "e3513b4f-2a13-45f5-8ead-e79b1af0bf68",
+                        "name": "Modern Baseball",
+                        "sort-name": "Modern Baseball"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "e9fd659b-371d-47a4-86e9-c78df974543f",
+                "type-id": "d6038452-8ee0-3f68-affc-2de9a1ede0b9",
+                "title": "Couples Therapy",
+                "primary-type": "Single"
+            },
+            "date": "2012-05-10",
+            "country": "XW",
+            "release-events": [
+                {
+                    "date": "2012-05-10",
+                    "area": {
+                        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+                        "name": "[Worldwide]",
+                        "sort-name": "[Worldwide]",
+                        "iso-3166-1-codes": [
+                            "XW"
+                        ]
+                    }
+                }
+            ],
+            "barcode": "",
+            "label-info": [
+                {
+                    "catalog-number": "[none]",
+                    "label": {
+                        "id": "157afde4-4bf5-4039-8ad2-5a15acc85176",
+                        "name": "[no label]"
+                    }
+                }
+            ],
+            "track-count": 4,
+            "media": [
+                {
+                    "format": "Digital Media",
+                    "disc-count": 0,
+                    "track-count": 4
+                }
+            ],
+            "tags": [
+                {
+                    "count": 1,
+                    "name": "rock"
+                },
+                {
+                    "count": 1,
+                    "name": "indie"
+                },
+                {
+                    "count": 1,
+                    "name": "punk"
+                }
+            ]
+        },
+        {
+            "id": "d5474e43-dd68-47bb-90f8-7d21739a0d75",
+            "score": 33,
+            "count": 1,
+            "title": "Preludes",
+            "status": "Official",
+            "text-representation": {
+                "script": "Latn"
+            },
+            "artist-credit": [
+                {
+                    "joinphrase": "; ",
+                    "name": "Сергей Васильевич Рахманинов",
+                    "artist": {
+                        "id": "44b16e44-da77-4580-b851-0d765904573e",
+                        "name": "Сергей Васильевич Рахманинов",
+                        "sort-name": "Rachmaninoff, Sergei Vasilievich"
+                    }
+                },
+                {
+                    "name": "Marietta Petkova",
+                    "artist": {
+                        "id": "1feaf7b9-d113-4049-a944-189368e87efd",
+                        "name": "Marietta Petkova",
+                        "sort-name": "Petkova, Marietta"
+                    }
+                }
+            ],
+            "release-group": {
+                "id": "6d2eb078-2276-3ce6-8a53-4c34fce36f6e",
+                "title": "Preludes"
+            },
+            "track-count": 23,
+            "media": [
+                {
+                    "format": "CD",
+                    "disc-count": 1,
+                    "track-count": 23
+                }
+            ]
+        }
+    ]
+}

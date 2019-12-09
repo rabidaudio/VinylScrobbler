@@ -2,7 +2,6 @@ package audio.rabid.vinylscrobbler.ui.myalbums
 
 import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -14,13 +13,11 @@ import audio.rabid.kaddi.Kaddi
 import audio.rabid.kaddi.inject
 import audio.rabid.vinylscrobbler.R
 import audio.rabid.vinylscrobbler.core.ui.BindingRecyclerView
+import audio.rabid.vinylscrobbler.core.ui.CustomView
 import audio.rabid.vinylscrobbler.core.ui.bindView
-import audio.rabid.vinylscrobbler.core.ui.matchParentX
 import audio.rabid.vinylscrobbler.core.ui.screenWidthDip
-import audio.rabid.vinylscrobbler.data.models.Album
-import com.squareup.contour.ContourLayout
-import com.squareup.picasso.Picasso
-import okhttp3.HttpUrl
+import audio.rabid.vinylscrobbler.data.db.models.Album
+import audio.rabid.vinylscrobbler.ui.coverImageLoader
 
 class MyAlbumsActivity : AppCompatActivity() {
 
@@ -48,6 +45,7 @@ class MyAlbumsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
+        // TODO build menus in code instead of xml
         menuInflater.inflate(R.menu.menu_my_albums, menu)
         return true
     }
@@ -80,7 +78,7 @@ class MyAlbumsActivity : AppCompatActivity() {
         override fun isSameItem(a: Album, b: Album): Boolean = a == b
     }
 
-    class AlbumView(context: Context, attrs: AttributeSet? = null) : ContourLayout(context, attrs) {
+    class AlbumView(context: Context) : CustomView(context) {
         init {
             contourHeightOf {
                 cover.bottom()
@@ -98,16 +96,7 @@ class MyAlbumsActivity : AppCompatActivity() {
         }
 
         fun setAlbum(album: Album) {
-            setCoverImage(album.coverUrl)
-        }
-
-        private fun setCoverImage(url: HttpUrl?) {
-            with(Picasso.get()) {
-                url?.let { load(it.toString()) } ?: load(R.drawable.cover2)
-            }.resize(500, 500)
-                .onlyScaleDown()
-                .centerCrop()
-                .into(cover)
+            album.coverUrl.coverImageLoader().into(cover)
         }
     }
 }

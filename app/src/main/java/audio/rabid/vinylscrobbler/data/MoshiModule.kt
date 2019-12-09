@@ -1,6 +1,7 @@
 package audio.rabid.vinylscrobbler.data
 
 import audio.rabid.kaddi.dsl.*
+import audio.rabid.kaddi.setInstance
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 

@@ -2,4 +2,6 @@
     <string name="app_name">Vinyl Scrobbler</string>
     <string name="select_album">Select An Album</string>
     <string name="add">Add</string>
+    <string name="search">Search</string>
+    <string name="add_album">Add Album</string>
 </resources>

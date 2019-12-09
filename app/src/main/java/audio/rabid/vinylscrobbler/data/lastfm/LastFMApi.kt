@@ -1,15 +1,12 @@
 package audio.rabid.vinylscrobbler.data.lastfm
 
 import org.json.JSONObject
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 import java.time.Instant
 import java.util.*
 
 // https://www.last.fm/api/intro
 interface LastFMApi {
-
     companion object {
         const val BASE_URL = "https://ws.audioscrobbler.com/2.0/"
     }
@@ -20,7 +17,7 @@ interface LastFMApi {
     suspend fun authenticate(
         @Field("username") username: String,
         @Field("password") password: String
-    ): AuthGetMobileSessionResponse
+    ): LastFM.AuthGetMobileSessionResponse
 
     // https://www.last.fm/api/show/track.scrobble
     // https://www.last.fm/api/scrobbling
@@ -51,4 +48,10 @@ interface LastFMApi {
         @Field("albumArtist") albumArtistName: String? = null,
         @Field("duration") durationSeconds: Int? = null
     ): JSONObject
+
+    // https://www.last.fm/api/show/album.getInfo
+    @GET(BASE_URL)
+    @LastFMMethod(method = "album.getInfo")
+    suspend fun getAlbumInfo(@Query("mbid") musicBrainzReleaseId: UUID,
+                             @Query("username") username: String? = null): LastFM.Album
 }

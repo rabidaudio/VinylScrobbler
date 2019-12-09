@@ -1,0 +1,163 @@
+{
+  "title": "Summer Death",
+  "status": "Official",
+  "disambiguation": "",
+  "quality": "normal",
+  "date": "2018-10-21",
+  "packaging": null,
+  "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+  "release-events": [
+    {
+      "date": "2018-10-21",
+      "area": {
+        "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+        "disambiguation": "",
+        "iso-3166-1-codes": [
+          "XW"
+        ],
+        "sort-name": "[Worldwide]",
+        "name": "[Worldwide]"
+      }
+    }
+  ],
+  "barcode": null,
+  "asin": null,
+  "packaging-id": null,
+  "text-representation": {
+    "language": "eng",
+    "script": "Latn"
+  },
+  "cover-art-archive": {
+    "count": 1,
+    "front": true,
+    "darkened": false,
+    "back": false,
+    "artwork": true
+  },
+  "id": "3d01dec9-071f-4c96-9378-6e7f6a4d96b7",
+  "media": [
+    {
+      "track-offset": 0,
+      "track-count": 8,
+      "position": 1,
+      "format": "Digital Media",
+      "tracks": [
+        {
+          "recording": {
+            "id": "d4780ec3-d689-4a73-b95d-4e04847fcbdf",
+            "title": "... So They Left Me at a Gas Station",
+            "video": false,
+            "length": 263611,
+            "disambiguation": ""
+          },
+          "position": 1,
+          "number": "1",
+          "length": 263611,
+          "id": "ee00b25a-4b4d-4108-ae9d-af88601c4440",
+          "title": "... So They Left Me at a Gas Station"
+        },
+        {
+          "recording": {
+            "title": "Cinco de Mayo Shit Show",
+            "video": false,
+            "id": "87cf640d-eb23-4ca6-a9d6-3dcd3772041a",
+            "length": 271340,
+            "disambiguation": ""
+          },
+          "position": 2,
+          "number": "2",
+          "length": 271340,
+          "id": "47efa6ba-9984-43c5-95f3-25f5efba60fd",
+          "title": "Cinco de Mayo Shit Show"
+        },
+        {
+          "length": 200839,
+          "id": "fe388fe0-3c91-411d-ba95-3c2f5ef1fe71",
+          "title": "You've Got the Map Backwards, Matt",
+          "recording": {
+            "disambiguation": "",
+            "length": 200839,
+            "id": "901f6cd1-c2ce-408f-9244-82c7b796b0eb",
+            "title": "You've Got the Map Backwards, Matt",
+            "video": false
+          },
+          "number": "3",
+          "position": 3
+        },
+        {
+          "number": "4",
+          "position": 4,
+          "recording": {
+            "disambiguation": "",
+            "video": false,
+            "title": "Deck Wine",
+            "id": "6b489419-ab93-4637-81d1-2e14de2d727b",
+            "length": 260003
+          },
+          "id": "dccc9b56-e5fa-4c07-999f-7c6be501ff48",
+          "title": "Deck Wine",
+          "length": 260003
+        },
+        {
+          "length": 288465,
+          "title": "God Bless Eric Taylor",
+          "id": "acc3ac6b-e0e8-4731-aa51-e87b60449158",
+          "recording": {
+            "length": 288465,
+            "id": "306f8cda-d599-4d0b-aacc-7ea26a044c66",
+            "video": false,
+            "title": "God Bless Eric Taylor",
+            "disambiguation": ""
+          },
+          "position": 5,
+          "number": "5"
+        },
+        {
+          "recording": {
+            "length": 281084,
+            "id": "aeabb94c-3580-4892-a430-0c082358f802",
+            "title": "Ever Is a Long Time (Ever Is No Time at All)",
+            "video": false,
+            "disambiguation": ""
+          },
+          "position": 6,
+          "number": "6",
+          "length": 281084,
+          "title": "Ever Is a Long Time (Ever Is No Time at All)",
+          "id": "76c509f2-4c78-4aae-9c92-6d6571596779"
+        },
+        {
+          "recording": {
+            "id": "e6bce1b6-2429-4976-b043-beb2693d8a50",
+            "video": false,
+            "title": "Chase, I Hardly Know Ya",
+            "length": 220451,
+            "disambiguation": ""
+          },
+          "position": 7,
+          "number": "7",
+          "length": 220451,
+          "id": "af8e5938-9eec-4c3a-8f7e-cc084839af95",
+          "title": "Chase, I Hardly Know Ya"
+        },
+        {
+          "id": "b7c883b9-bb9d-4186-baa3-3908ae4e420a",
+          "title": "Fuck, Dantooine Is Big",
+          "length": 357411,
+          "position": 8,
+          "number": "8",
+          "recording": {
+            "length": 357411,
+            "video": false,
+            "title": "Fuck, Dantooine Is Big",
+            "id": "6231a382-d9bb-4e2f-b03f-1e21a60bbf56",
+            "disambiguation": ""
+          }
+        }
+      ],
+      "format-id": "907a28d9-b3b2-3ef6-89a8-7b18d91d4794",
+      "title": ""
+    }
+  ],
+  "country": "XW"
+}

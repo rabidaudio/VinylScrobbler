@@ -1,0 +1,200 @@
+{
+  "album": {
+    "name": "Summer Death",
+    "artist": "Marietta",
+    "mbid": "6c08b72b-19dd-45cd-96e3-141eb6993911",
+    "url": "https://www.last.fm/music/Marietta/Summer+Death",
+    "image": [
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": "small"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": "medium"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": "large"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": "extralarge"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": "mega"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/794d8e4676f547b881d795ebeb5b3abe.png",
+        "size": ""
+      }
+    ],
+    "listeners": "19043",
+    "playcount": "326982",
+    "tracks": {
+      "track": [
+        {
+          "name": "... So They Left Me At A Gas Station",
+          "url": "https://www.last.fm/music/Marietta/_/...+So+They+Left+Me+At+A+Gas+Station",
+          "duration": "263",
+          "@attr": {
+            "rank": "1"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "Cinco De Mayo Shit Show",
+          "url": "https://www.last.fm/music/Marietta/_/Cinco+De+Mayo+Shit+Show",
+          "duration": "271",
+          "@attr": {
+            "rank": "2"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "You've Got the Map Backwards, Matt",
+          "url": "https://www.last.fm/music/Marietta/_/You%27ve+Got+the+Map+Backwards,+Matt",
+          "duration": "200",
+          "@attr": {
+            "rank": "3"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "Deck Wine",
+          "url": "https://www.last.fm/music/Marietta/_/Deck+Wine",
+          "duration": "260",
+          "@attr": {
+            "rank": "4"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "God Bless Eric Taylor",
+          "url": "https://www.last.fm/music/Marietta/_/God+Bless+Eric+Taylor",
+          "duration": "284",
+          "@attr": {
+            "rank": "5"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "Ever Is a Long Time (Ever Is No Time At All)",
+          "url": "https://www.last.fm/music/Marietta/_/Ever+Is+a+Long+Time+(Ever+Is+No+Time+At+All)",
+          "duration": "283",
+          "@attr": {
+            "rank": "6"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "Chase, I Hardly Know Ya",
+          "url": "https://www.last.fm/music/Marietta/_/Chase,+I+Hardly+Know+Ya",
+          "duration": "220",
+          "@attr": {
+            "rank": "7"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        },
+        {
+          "name": "Fuck, Dantooine Is Big",
+          "url": "https://www.last.fm/music/Marietta/_/Fuck,+Dantooine+Is+Big",
+          "duration": "357",
+          "@attr": {
+            "rank": "8"
+          },
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Marietta",
+            "mbid": "ca2e24a3-7b2d-4efa-8dad-0401523d774f",
+            "url": "https://www.last.fm/music/Marietta"
+          }
+        }
+      ]
+    },
+    "tags": {
+      "tag": [
+        {
+          "name": "emo",
+          "url": "https://www.last.fm/tag/emo"
+        },
+        {
+          "name": "math rock",
+          "url": "https://www.last.fm/tag/math+rock"
+        },
+        {
+          "name": "Favorite",
+          "url": "https://www.last.fm/tag/Favorite"
+        },
+        {
+          "name": "twinkly",
+          "url": "https://www.last.fm/tag/twinkly"
+        },
+        {
+          "name": "gang vocals",
+          "url": "https://www.last.fm/tag/gang+vocals"
+        }
+      ]
+    }
+  }
+}
