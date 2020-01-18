@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    TODO: these are the generic material design colors, pick some better ones-->
+    <color name="primary">#6200EE</color>
+    <color name="primaryDark">#3700B3</color>
+    <color name="primaryLight">#BB86FC</color>
+    <color name="accent">#03DAC6</color>
+    <color name="accentDark">#018786</color>
+
+    <color name="surface">#FFFFFF</color>
+    <color name="background">#e1e1e1</color>
+    <color name="error">#B00020</color>
+
+    <color name="lightOnColor">#FFFFFF</color>
+    <color name="darkOnColor">#8A000000</color>
+
+    <color name="onPrimary">@color/lightOnColor</color>
+    <color name="onPrimaryDark">@color/lightOnColor</color>
+    <color name="onPrimaryLight">@color/darkOnColor</color>
+    <color name="onAccent">@color/darkOnColor</color>
+    <color name="onAccentDark">@color/lightOnColor</color>
+
+    <color name="onSurface">@color/darkOnColor</color>
+    <color name="onBackground">@color/darkOnColor</color>
+    <color name="onError">@color/lightOnColor</color>
+</resources>

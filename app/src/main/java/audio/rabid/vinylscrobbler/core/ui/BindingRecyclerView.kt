@@ -4,10 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.squareup.contour.XInt
-import com.squareup.contour.YInt
+import androidx.recyclerview.widget.*
 
 
 @Suppress("UNCHECKED_CAST")
@@ -18,6 +15,12 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
     init {
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
     }
+
+    interface OnItemClickListener<T, V : View> {
+        fun onItemClick(view: V, item: T, adapter: RecyclerView.Adapter<SimpleViewHolder<V>>)
+    }
+
+    private var onItemClickListener: OnItemClickListener<T, V>? = null
 
     private inner class DiffUtilCallback(
         val old: List<T>,
@@ -34,7 +37,7 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
             isSameContent(old[oldItemPosition], new[newItemPosition])
     }
 
-    private class SimpleViewHolder<V: View>(view: V) : RecyclerView.ViewHolder(view)
+    class SimpleViewHolder<V: View>(view: V) : RecyclerView.ViewHolder(view)
 
     private inner class Adapter(initialItems: List<T>) : RecyclerView.Adapter<SimpleViewHolder<V>>() {
         private var currentItems = initialItems
@@ -46,12 +49,7 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder<V> {
-            return SimpleViewHolder(
-                createView(
-                    parent,
-                    viewType
-                )
-            )
+            return SimpleViewHolder(createView(parent, viewType))
         }
 
         fun getItem(position: Int): T = currentItems[position]
@@ -59,13 +57,23 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
         override fun getItemCount(): Int = currentItems.size
 
         override fun onBindViewHolder(holder: SimpleViewHolder<V>, position: Int) {
-            bind(getItem(position), holder.itemView as V)
+            val item =  getItem(position)
+            val view = holder.itemView as V
+            bind(item, view).also {
+                holder.itemView.setOnClickListener {
+                    onItemClickListener?.onItemClick(view, item, this)
+                }
+            }
         }
     }
 
     fun setItems(items: List<T>) {
         ((adapter as? BindingRecyclerView<T,V>.Adapter)
             ?: Adapter(items).also { adapter = it }).setItems(items)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener<T, V>) {
+        this.onItemClickListener = listener
     }
 
     abstract fun createView(parent: ViewGroup, viewType: Int): V
@@ -75,8 +83,48 @@ abstract class BindingRecyclerView<T, V : View> @JvmOverloads constructor(
     abstract fun isSameItem(a: T, b: T): Boolean
 
     open fun isSameContent(a: T, b: T): Boolean = a == b
+}
 
-    val Int.dip: Int get() = (density * this).toInt()
-    val Int.xdip: XInt get() = XInt((density * this).toInt())
-    val Int.ydip: YInt get() = YInt((density * this).toInt())
+class EndlessScrollListener(
+    private val layoutManager: RecyclerView.LayoutManager,
+    rowThreshold: Int,
+    private val callback: () -> Unit
+) : RecyclerView.OnScrollListener() {
+
+    private val visibleThreshold = when (layoutManager) {
+        is GridLayoutManager -> rowThreshold * layoutManager.spanCount
+        is StaggeredGridLayoutManager -> rowThreshold * layoutManager.spanCount
+        else -> rowThreshold
+    }
+
+    var enabled = true
+
+    private var triggered = false
+
+    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        if (!enabled || dy <= 0) return
+        val shouldLoadMore = lastVisibleItemPosition + visibleThreshold > layoutManager.itemCount
+        // the triggered flag is a simple debounce so we only call it once until we leave and re-trigger the threshold
+        if (shouldLoadMore && !triggered) {
+            callback.invoke()
+            triggered = true
+        } else if (!shouldLoadMore && triggered) {
+            triggered = false
+        }
+    }
+
+    private val lastVisibleItemPosition: Int
+        get() = when (layoutManager) {
+            is LinearLayoutManager -> layoutManager.findLastVisibleItemPosition()
+            is GridLayoutManager -> layoutManager.findLastVisibleItemPosition()
+            is StaggeredGridLayoutManager ->
+                layoutManager.findLastCompletelyVisibleItemPositions(null).max() ?: 0
+            else -> throw IllegalArgumentException("This LayoutManager is not supported")
+        }
+}
+
+fun RecyclerView.setOnEndlessScrollLoadMoreCallback(rowThreshold: Int = 5, callback: () -> Unit) {
+    val layoutManager = layoutManager
+        ?: throw IllegalStateException("RecyclerView must have a layout manager")
+    addOnScrollListener(EndlessScrollListener(layoutManager, rowThreshold, callback))
 }

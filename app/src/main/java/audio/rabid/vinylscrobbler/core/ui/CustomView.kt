@@ -3,13 +3,23 @@ package audio.rabid.vinylscrobbler.core.ui
 
 import android.content.Context
 import android.view.View
+import androidx.annotation.StyleRes
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.updateLayoutParams
-import audio.rabid.vinylscrobbler.ui.Theme
+import audio.rabid.vinylscrobbler.ui.theme
 import com.squareup.contour.*
 import com.squareup.contour.solvers.XAxisSolver
 import com.squareup.contour.solvers.YAxisSolver
 
 abstract class CustomView(context: Context) : ContourLayout(context) {
+
+    constructor(context: Context, @StyleRes styleId: Int) :
+            this(ContextThemeWrapper(context, styleId))
+
+    val theme by lazy { this.context.theme() }
+
+    val standardMarginX: XInt get() = theme.dimensions.standardMargin.toXInt()
+    val standardMarginY: YInt get() = theme.dimensions.standardMargin.toYInt()
 
     private var margins = arrayOf(0, 0, 0, 0)
     private var initialized = false
@@ -71,9 +81,9 @@ abstract class CustomView(context: Context) : ContourLayout(context) {
     inline fun matchParentX(): XAxisSolver = toParentLeft().toParentRight()
     inline fun matchParentY(): YAxisSolver = toParentTop().toParentBottom()
 
-    inline fun XAxisSolver.withDefaultMargin() = withMargin(Theme.Dimensions.standardMargin.xdip)
-    inline fun YAxisSolver.withDefaultMargin() = withMargin(Theme.Dimensions.standardMargin.ydip)
+    inline fun XAxisSolver.withDefaultMargin() = withMargin(standardMarginX)
+    inline fun YAxisSolver.withDefaultMargin() = withMargin(standardMarginY)
 
-    inline fun XAxisSolver.withHalfMargin() = withMargin(Theme.Dimensions.standardMargin.xdip / 2)
-    inline fun YAxisSolver.withHalfMargin() = withMargin(Theme.Dimensions.standardMargin.ydip / 2)
+    inline fun XAxisSolver.withHalfMargin() = withMargin(standardMarginX / 2)
+    inline fun YAxisSolver.withHalfMargin() = withMargin(standardMarginY / 2)
 }

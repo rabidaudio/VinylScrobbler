@@ -4,7 +4,7 @@
     package="audio.rabid.vinylscrobbler">
 
     <application
-        android:name=".Application"
+        android:name=".VSApp"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

@@ -1,6 +1,7 @@
 package audio.rabid.vinylscrobbler.data.db.models
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 import okhttp3.HttpUrl
 import java.time.Instant
 import java.util.*
@@ -18,17 +19,17 @@ data class Album(
     @androidx.room.Dao
     interface Dao {
         @Query("SELECT * FROM albums ORDER BY last_listened_at")
-        suspend fun getAll(): List<Album>
+        fun getAll(): Flow<List<Album>>
 
-        @Query("""
-            SELECT * FROM albums
-            WHERE name LIKE :name OR artist_name LIKE :name
-            ORDER BY last_listened_at
-            """)
-        suspend fun search(name: String): List<Album>
+//        @Query("""
+//            SELECT * FROM albums
+//            WHERE name LIKE :name OR artist_name LIKE :name
+//            ORDER BY last_listened_at
+//            """)
+//        suspend fun search(name: String): List<Album>
 
         @Insert
-        suspend fun add(album: Album)
+        suspend fun insert(album: Album)
 
         @Delete
         suspend fun delete(album: Album)

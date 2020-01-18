@@ -1,5 +1,6 @@
 package audio.rabid.vinylscrobbler.data
 
+import android.app.Application
 import android.content.Context
 import audio.rabid.kaddi.dsl.*
 import audio.rabid.kaddi.instance
@@ -21,8 +22,8 @@ val DataModule = module("Data") {
     bindIntoSet<Any>("MoshiAdapters").with { InstantAdapter() }
     bindIntoSet<Any>("MoshiAdapters").with { LocalDateAdapter() }
 
-    require<Context>()
+    require<Context>(Application::class)
     bind<AppDatabase>().withSingleton {
-        AppDatabase.get(applicationContext = instance())
+        AppDatabase.get(applicationContext = instance(Application::class))
     }
 }

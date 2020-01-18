@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // STOPSHIP
-        startActivity(Intent(this, AddAlbumActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK))
+//        startActivity(Intent(this, MyAlbumsActivity::class.java))
+        startActivity(Intent(this, AddAlbumActivity::class.java))
     }
 }

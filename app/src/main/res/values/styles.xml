@@ -1,15 +1,45 @@
 <resources>
+    <dimen name="standardMargin">8dp</dimen>
 
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC6</color>
+    <dimen name="fabMargin">16dp</dimen>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="android:background">@color/surface</item>
+        <item name="android:textColor">@color/onSurface</item>
+        <item name="android:textViewStyle">@style/AppTheme.TextAppearance</item>
+<!--        buttonStyle-->
+<!--        toolbarStyle-->
+        <item name="android:windowBackground">@color/background</item>
     </style>
 
+    <style name="AppTheme.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/onBackground</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.H1" parent="AppTheme.TextAppearance">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.H2" parent="AppTheme.TextAppearance">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.Widget">
+        <item name="android:background">@color/background</item>
+        <item name="android:textColor">@color/onSurface</item>
+    </style>
+
+    <style name="AppTheme.Card" parent="AppTheme.Widget">
+        <item name="android:elevation">8dp</item>
+        <item name="android:background">@drawable/card_background</item>
+        <item name="android:textColor">@color/onSurface</item>
+    </style>
 </resources>
