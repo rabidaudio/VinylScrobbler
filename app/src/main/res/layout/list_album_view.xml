@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Card"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="@dimen/halfMargin">
+
+    <ImageView
+        android:id="@+id/Cover"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_album" />
+
+    <TextView
+        android:id="@+id/Artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:maxLines="2"
+        android:textAppearance="@style/AppTheme.TextAppearance.H2"
+        android:textColor="@color/onSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Cover"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="My Chemical Romance" />
+
+    <TextView
+        android:id="@+id/Album"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:maxLines="2"
+        android:textAppearance="@style/AppTheme.TextAppearance.H2"
+        android:textColor="@color/onSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Cover"
+        app:layout_constraintTop_toBottomOf="@id/Artist"
+        tools:text="Three Cheers For Sweet Revenge" />
+
+    <TextView
+        android:id="@+id/ReleaseYear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:maxLines="2"
+        android:textColor="@color/onSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Cover"
+        app:layout_constraintTop_toBottomOf="@id/Album"
+        app:layout_constraintVertical_bias="0"
+        tools:text="2004" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

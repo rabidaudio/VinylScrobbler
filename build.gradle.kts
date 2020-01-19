@@ -14,7 +14,7 @@ buildscript {
 
     dependencies {
         classpath(kotlin("gradle-plugin"))
-        classpath("com.android.tools.build:gradle:3.5.2")
+        classpath("com.android.tools.build:gradle:3.6.0-rc01") //  3.5.3
         classpath("com.airbnb.okreplay:gradle-plugin:1.5.0")
         classpath("com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.5")
         classpath("de.mannodermaus.gradle.plugins:android-junit5:1.5.1.0")

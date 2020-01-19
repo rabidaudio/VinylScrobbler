@@ -55,6 +55,8 @@ android {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + "-Xuse-experimental=kotlin.Experimental"
     }
+
+    viewBinding.isEnabled = true
 }
 
 dexcount {
@@ -81,8 +83,12 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc02")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    // implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0-rc03")
+    kapt("androidx.lifecycle:lifecycle-compiler:2.2.0-rc03")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03")
+    implementation("com.google.android.material:material:1.2.0-alpha03")
 
     // Retrofit + Moshi - API
     implementation("com.squareup.retrofit2:retrofit:2.6.2")
@@ -100,14 +106,8 @@ dependencies {
     implementation("com.github.rabidaudio.kaddi:kaddi-dsl:3aee32b")
 //    implementation("audio.rabid.kaddi:kaddi-dsl:0.0.1")
 
-    // Contour - UI
-    implementation("app.cash.contour:contour:0.1.5-SNAPSHOT")
-    // DSL for shape drawables
-    implementation("com.github.infotech-group:android-drawable-dsl:0.3.0")
-
     // UI Utils
     implementation("com.squareup.picasso:picasso:2.71828")
-    implementation("com.github.arimorty:floatingsearchview:2.1.1")
 
     // Debugging Utils
     debugImplementation("com.facebook.flipper:flipper:0.30.0")
@@ -122,8 +122,8 @@ dependencies {
 
     testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.8")
     testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.8")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.4.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.1")
 
     debugImplementation("com.airbnb.okreplay:okreplay:1.5.0")
     releaseImplementation("com.airbnb.okreplay:noop:1.5.0")

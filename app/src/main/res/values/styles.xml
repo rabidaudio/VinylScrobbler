@@ -1,5 +1,6 @@
 <resources>
     <dimen name="standardMargin">8dp</dimen>
+    <dimen name="halfMargin">4dp</dimen>
 
     <dimen name="fabMargin">16dp</dimen>
 
