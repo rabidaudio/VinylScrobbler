@@ -7,6 +7,7 @@ import com.squareup.moshi.ToJson
 import okhttp3.HttpUrl
 import java.time.Instant
 import java.time.LocalDate
+import java.time.format.DateTimeParseException
 import java.util.*
 
 class HttpUrlAdapter {
@@ -47,7 +48,13 @@ class LocalDateAdapter {
 
     @TypeConverter
     @FromJson
-    fun fromJson(dateString: String?): LocalDate? = dateString?.let { LocalDate.parse(it) }
+    fun fromJson(dateString: String?): LocalDate? = dateString?.let { s ->
+        try {
+            LocalDate.parse(s)
+        } catch (e: DateTimeParseException) {
+            null
+        }
+    }
 }
 
 @JsonQualifier

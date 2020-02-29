@@ -5,6 +5,7 @@ import com.squareup.moshi.JsonClass
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
+import java.time.format.DateTimeParseException
 import java.util.*
 
 object MusicBrainz {
@@ -22,7 +23,7 @@ object MusicBrainz {
         @Json(name = "id") val id: UUID,
         @Json(name = "name") val name: String,
         @Json(name = "sort-name") val sortName: String,
-        @Json(name = "disambiguation") val disambiguation: String
+        @Json(name = "disambiguation") val disambiguation: String?
     )
 
     @JsonClass(generateAdapter = true)
@@ -40,8 +41,8 @@ object MusicBrainz {
         @Json(name = "id") val id: UUID,
         @Json(name = "title") val title: String,
         @Json(name = "artist-credit") val artistCredits: List<ArtistCredit>,
-        @Json(name = "date") val date: LocalDate,
-        @Json(name = "country") val country: String,
+        @Json(name = "date") val date: LocalDate?,
+        @Json(name = "country") val country: String?,
         @Json(name = "track-count") val tackCount: Int,
         @Json(name = "media") val media: List<Media>
     )  {
@@ -52,14 +53,20 @@ object MusicBrainz {
             @Json(name = "artist") val artist: Artist
         )
 
+        // release-group
+//        "id": "b1e85bcf-2496-3d82-ba05-7bae4579ebb9",
+//        "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+//        "title": "SEXUAL×××××！",
+//        "primary-type": "Album"
+
         @JsonClass(generateAdapter = true)
         data class Media(
-            @Json(name = "format") val format: String,
+            @Json(name = "format") val format: String?,
             @Json(name = "disk-count") val diskCount: Int?,
             @Json(name = "track-offset") val trackOffset: Int?,
             @Json(name = "position") val position: Int?,
-            @Json(name = "track-count") val trackCount: Int,
-            @Json(name = "tracks") val tracks: List<Track>?
+            @Json(name = "track-count") val trackCount: Int
+//            @Json(name = "tracks") val tracks: List<Track>?
         )
     }
 }

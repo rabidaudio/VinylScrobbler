@@ -35,7 +35,7 @@ class AddAlbumActivity : AppCompatActivity() {
                 // addItemDecoration(DividerItemDecoration(context, orientation))
             }
             setOnEndlessScrollLoadMoreCallback(rowThreshold = 3) {
-                // TODO load next page of results
+                viewModel.loadNextPage()
             }
         }
 
@@ -80,6 +80,6 @@ class AddAlbumActivity : AppCompatActivity() {
         searchResult.coverUrl.coverImageLoader().placeholder(R.drawable.ic_album).into(Cover)
         Album.text = searchResult.artistName
         Artist.text = searchResult.albumName
-        ReleaseYear.text = searchResult.releaseDate.year.toString()
+        ReleaseYear.text = searchResult.releaseDate?.year.toString()
     }
 }

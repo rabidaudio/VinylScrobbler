@@ -35,7 +35,7 @@ class MyAlbumsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Kaddi.getScope(applicationContext)
+        Kaddi.getScope(application)
             .createChildScope(this, MyAlbumsModule)
             .inject(this)
 
