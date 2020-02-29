@@ -3,6 +3,7 @@
 buildscript {
     extra.set("kotlin_version", "1.3.50")
     extra.set("room_version", "2.2.1")
+    extra.set("androidx_viewmodel_version", "2.2.0")
 
     repositories {
         google()

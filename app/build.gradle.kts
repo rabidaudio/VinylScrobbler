@@ -73,6 +73,7 @@ repositories {
 dependencies {
     val kotlinVersion = rootProject.extra.get("kotlin_version")
     val roomVersion = rootProject.extra.get("room_version")
+    val viewModelVersion = rootProject.extra.get("androidx_viewmodel_version")
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
@@ -83,11 +84,11 @@ dependencies {
     implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    // implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0-rc03")
-    kapt("androidx.lifecycle:lifecycle-compiler:2.2.0-rc03")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03")
-    implementation("com.google.android.material:material:1.2.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-common-java8:$viewModelVersion")
+    kapt("androidx.lifecycle:lifecycle-compiler:$viewModelVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$viewModelVersion")
+    implementation("com.google.android.material:material:1.2.0-alpha05")
 
     // Retrofit + Moshi - API
     implementation("com.squareup.retrofit2:retrofit:2.6.2")
