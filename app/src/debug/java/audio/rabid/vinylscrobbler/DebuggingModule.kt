@@ -8,6 +8,7 @@ import audio.rabid.vinylscrobbler.data.LoggingInterceptor
 import audio.rabid.vinylscrobbler.data.LoggingModule
 import com.fixdapp.android.logger.DebugLoggerEndpoint
 import com.fixdapp.android.logger.LoggerEndpoint
+import com.squareup.picasso.Picasso
 import okhttp3.Interceptor
 
 val DebuggingModule = module("Debugging") {
@@ -17,4 +18,9 @@ val DebuggingModule = module("Debugging") {
     bindIntoSet<LoggerEndpoint>("LoggerEndpoints").with { DebugLoggerEndpoint() }
     bindIntoSet<Interceptor>().with { LoggingInterceptor(instance()) }
     // bindIntoSet<Interceptor>().with { OkReplayInterceptor() }
+
+    onAttachedToScope {
+        // Turn on Picasso image debug indicators. see: https://square.github.io/picasso/
+        Picasso.get().setIndicatorsEnabled(true)
+    }
 }

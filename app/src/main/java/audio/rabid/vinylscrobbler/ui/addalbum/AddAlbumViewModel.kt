@@ -60,6 +60,10 @@ class AddAlbumViewModel(
     }
 
     private suspend fun query(query: String, page: Int): State {
+        if (query.isBlank()) {
+            // MusicBrainz returns a 400 for an empty query
+            return State(query = query, page = page, results = emptyList())
+        }
         val result =
             musicBrainzApi.searchReleases(query, limit = PAGE_SIZE, offset = page * PAGE_SIZE)
         logger.d("api results", result)

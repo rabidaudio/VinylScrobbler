@@ -37,7 +37,7 @@ interface MusicBrainzApi {
         }
 
         fun coverImageUrl(releaseId: UUID): HttpUrl? =
-            HttpUrl.parse("${BASE_URL}release/${releaseId}/front-500.jpg")
+            HttpUrl.parse("https://coverartarchive.org/release/${releaseId}/front-500.jpg")
     }
 
     @GET("release?fmt=json")

@@ -14,7 +14,7 @@ class LoggingInterceptor(private val logger: Logger) : Interceptor {
             logger.d("RESPONSE", chain.request().method(),
                 chain.request().url(),
                 response.code(),
-                response.body()?.contentLength() ?: 0)
+                response.header("Content-Length") ?: response.body()?.contentLength() ?: 0)
         }
     }
 }
