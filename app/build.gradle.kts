@@ -6,7 +6,6 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     kotlin("kapt")
-    id("okreplay")
     id("com.getkeepsafe.dexcount")
 }
 
@@ -19,7 +18,7 @@ fun dateVersionCode(): Int {
 
 android {
     compileSdkVersion(29)
-    buildToolsVersion("29.0.1")
+    buildToolsVersion("29.0.3")
     defaultConfig {
         applicationId = "audio.rabid.vinylscrobbler"
         minSdkVersion(26)
@@ -56,7 +55,7 @@ android {
         freeCompilerArgs = freeCompilerArgs + "-Xuse-experimental=kotlin.Experimental"
     }
 
-    viewBinding.isEnabled = true
+     android.buildFeatures.viewBinding = true
 }
 
 dexcount {
@@ -110,6 +109,7 @@ dependencies {
     implementation("com.squareup.picasso:picasso:2.71828")
 
     // Debugging Utils
+    implementation("com.github.fixdauto:android-logger:1.1.0")
     debugImplementation("com.facebook.flipper:flipper:0.30.0")
     debugImplementation("com.facebook.soloader:soloader:0.8.0")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:0.30.0")
@@ -124,10 +124,6 @@ dependencies {
     testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.8")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.1")
-
-    debugImplementation("com.airbnb.okreplay:okreplay:1.5.0")
-    releaseImplementation("com.airbnb.okreplay:noop:1.5.0")
-    androidTestImplementation("com.airbnb.okreplay:espresso:1.5.0")
 
     testImplementation("com.winterbe:expekt:0.5.0")
     testImplementation("io.mockk:mockk:1.9.3")
