@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.addalbum.add.AddReleaseActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ReleaseList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ToolbarSplashImage"
+        tools:listitem="@layout/item_release" />
+
+    <ProgressBar
+        android:id="@+id/ReleasesLoading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/ReleaseList"
+        app:layout_constraintEnd_toEndOf="@id/ReleaseList"
+        app:layout_constraintTop_toTopOf="@id/ReleaseList"
+        app:layout_constraintBottom_toBottomOf="@id/ReleaseList"
+        android:indeterminate="true" />
+
+    <ImageView
+        android:id="@+id/ToolbarSplashImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_album_with_skrim" />
+
+    <ImageView
+        android:id="@android:id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        android:paddingStart="@dimen/doubleMargin"
+        android:paddingTop="@dimen/doubleMargin"
+        android:paddingEnd="@dimen/doubleMargin"
+        android:paddingBottom="@dimen/doubleMargin"
+        android:src="@drawable/ic_arrow_back"
+        android:tint="@color/darkOnColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="24dp"
+        tools:text="Three Cheers for Sweet Revenge - My Chemical Romance"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/lightOnColor"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ToolbarSplashImage"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

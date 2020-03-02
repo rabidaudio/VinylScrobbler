@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/halfMargin"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Format"
+        style="@style/AppTheme.TextAppearance.H2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:textColor="@color/onSurface"
+        tools:text="Digital Media" />
+
+    <TextView
+        android:id="@+id/ReleaseDate"
+        style="@style/AppTheme.TextAppearance.H3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:textColor="@color/onSurface"
+        tools:text="2016-02-16" />
+
+    <TextView
+        android:id="@+id/Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginBottom="@dimen/standardMargin"
+        android:textColor="@color/onSurface"
+        tools:text="Fat Possum Records | US" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/halfMargin"
+        android:layout_marginEnd="@dimen/halfMargin"
+        android:background="@color/darkOnColor" />
+
+    <audio.rabid.vinylscrobbler.ui.addalbum.add.TrackListingView
+        android:id="@+id/TrackListing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginTop="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        android:layout_marginBottom="@dimen/standardMargin" />
+
+</LinearLayout>

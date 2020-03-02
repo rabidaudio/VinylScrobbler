@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
-        tools:ignore="ContentDescription"
+        android:contentDescription="@null"
         tools:src="@drawable/ic_album_with_skrim" />
 
     <TextView
@@ -24,13 +24,13 @@
         android:maxLines="2"
         android:textAppearance="@style/AppTheme.TextAppearance.H2"
         android:textColor="@color/onAccentDark"
-        app:layout_constraintBottom_toTopOf="@id/ReleaseYear"
+        app:layout_constraintBottom_toTopOf="@id/ReleaseDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Three Cheers For Sweet Revenge" />
 
     <TextView
-        android:id="@+id/ReleaseYear"
+        android:id="@+id/ReleaseDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standardMargin"

@@ -18,7 +18,7 @@ import audio.rabid.vinylscrobbler.core.ui.viewBinding
 import audio.rabid.vinylscrobbler.data.db.models.Album
 import audio.rabid.vinylscrobbler.databinding.ActivityMyAlbumsBinding
 import audio.rabid.vinylscrobbler.databinding.SquareAlbumViewBinding
-import audio.rabid.vinylscrobbler.ui.addalbum.AddAlbumActivity
+import audio.rabid.vinylscrobbler.ui.addalbum.search.SearchReleaseGroupsActivity
 import audio.rabid.vinylscrobbler.ui.coverImageLoader
 
 class MyAlbumsActivity : AppCompatActivity() {
@@ -85,7 +85,7 @@ class MyAlbumsActivity : AppCompatActivity() {
     }
 
     private fun navigateToAddAlbum() {
-        startActivity(Intent(this, AddAlbumActivity::class.java))
+        startActivity(Intent(this, SearchReleaseGroupsActivity::class.java))
     }
 
     class AlbumListAdapter :
@@ -103,15 +103,15 @@ fun SquareAlbumViewBinding.setAlbum(album: Album) {
     if (album.coverUrl == null) {
         Title.text = album.name
         // artistName.text = album.artistName
-        ReleaseYear.text = "2006" // STOPSHIP
+        ReleaseDetails.text = "2006" // STOPSHIP
 //        Skrim.visibility = View.VISIBLE
-        ReleaseYear.visibility = View.VISIBLE
+        ReleaseDetails.visibility = View.VISIBLE
         // artistName.visibility = View.VISIBLE
-        ReleaseYear.visibility = View.VISIBLE
+        ReleaseDetails.visibility = View.VISIBLE
     } else {
 //        Skrim.visibility = View.GONE
         Title.visibility = View.GONE
         // artistName.visibility = View.GONE
-        ReleaseYear.visibility = View.GONE
+        ReleaseDetails.visibility = View.GONE
     }
 }

@@ -5,4 +5,10 @@
     <string name="search">Search</string>
     <string name="add_album">Add Album</string>
     <string name="back">Back</string>
+    <string name="format">Format:</string>
+    <plurals name="track_count">
+        <item quantity="zero">no tracks</item>
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
 </resources>

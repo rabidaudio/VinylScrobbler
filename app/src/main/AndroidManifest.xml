@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.addalbum.AddAlbumActivity"
+        <activity android:name=".ui.addalbum.search.SearchReleaseGroupsActivity"
             android:label="@string/add_album" />
+        <activity android:name=".ui.addalbum.add.AddReleaseActivity" />
         <activity
             android:name=".ui.myalbums.MyAlbumsActivity"
             android:label="@string/select_album" />

@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-android-extensions")
     kotlin("kapt")
     id("com.getkeepsafe.dexcount")
 }
@@ -55,7 +56,8 @@ android {
         freeCompilerArgs = freeCompilerArgs + "-Xuse-experimental=kotlin.Experimental"
     }
 
-     android.buildFeatures.viewBinding = true
+    android.buildFeatures.viewBinding = true
+    androidExtensions.isExperimental = true
 }
 
 dexcount {
@@ -81,9 +83,9 @@ dependencies {
 
     // Support
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
     implementation("androidx.lifecycle:lifecycle-common-java8:$viewModelVersion")
     kapt("androidx.lifecycle:lifecycle-compiler:$viewModelVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion")
@@ -108,6 +110,7 @@ dependencies {
 
     // UI Utils
     implementation("com.squareup.picasso:picasso:2.71828")
+    // implementation("app.cash.contour:contour:0.1.6")
 
     // Debugging Utils
     implementation("com.github.fixdauto:android-logger:1.1.0")

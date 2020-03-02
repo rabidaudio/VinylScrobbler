@@ -13,6 +13,8 @@ import com.facebook.flipper.plugins.crashreporter.CrashReporterPlugin
 import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
+import com.facebook.flipper.plugins.leakcanary.LeakCanaryFlipperPlugin
+import com.facebook.flipper.plugins.leakcanary.RecordLeakService
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
@@ -38,7 +40,7 @@ val FlipperModule = module("Flipper") {
         DatabasesFlipperPlugin(instance<Context>(Application::class))
     }
 
-//    bindIntoSet<FlipperPlugin>().with { LeakCanaryFlipperPlugin() }
+    bindIntoSet<FlipperPlugin>().with { LeakCanaryFlipperPlugin() }
 
     bindIntoSet<FlipperPlugin>().with { CrashReporterPlugin.getInstance() }
 
@@ -57,10 +59,9 @@ val FlipperModule = module("Flipper") {
         }
         if (!LeakCanary.isInAnalyzerProcess(context)
             && LeakCanary.installedRefWatcher() == RefWatcher.DISABLED) {
-            LeakCanary.install(context as Application)
-//            LeakCanary.refWatcher(context)
-//                .listenerServiceClass(RecordLeakService::class.java)
-//                .buildAndInstall()
+            LeakCanary.refWatcher(context)
+                .listenerServiceClass(RecordLeakService::class.java)
+                .buildAndInstall()
         }
     }
 }

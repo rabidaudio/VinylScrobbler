@@ -1,4 +1,4 @@
-package audio.rabid.vinylscrobbler.ui.addalbum
+package audio.rabid.vinylscrobbler.ui.addalbum.search
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,21 +11,24 @@ import audio.rabid.vinylscrobbler.R
 import audio.rabid.vinylscrobbler.core.ui.ViewBindingAdapter
 import audio.rabid.vinylscrobbler.core.ui.setOnEndlessScrollLoadMoreCallback
 import audio.rabid.vinylscrobbler.core.ui.viewBinding
-import audio.rabid.vinylscrobbler.databinding.ActivityAddAlbumBinding
+import audio.rabid.vinylscrobbler.databinding.ActivitySearchReleaseGroupsBinding
 import audio.rabid.vinylscrobbler.databinding.ListAlbumViewBinding
-import audio.rabid.vinylscrobbler.ui.addalbum.AddAlbumViewModel.SearchResult
+import audio.rabid.vinylscrobbler.ui.addalbum.search.SearchReleaseGroupsViewModel.ReleaseGroupResult
+import audio.rabid.vinylscrobbler.ui.addalbum.add.AddReleaseActivity
 import audio.rabid.vinylscrobbler.ui.coverImageLoader
 
-class AddAlbumActivity : AppCompatActivity() {
+class SearchReleaseGroupsActivity : AppCompatActivity() {
 
-    private val viewModel by inject<AddAlbumViewModel>()
-    private val views by viewBinding(ActivityAddAlbumBinding::inflate)
+    private val viewModel by inject<SearchReleaseGroupsViewModel>()
+    private val views by viewBinding(ActivitySearchReleaseGroupsBinding::inflate)
     private val searchResultsAdapter = SearchResultsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Kaddi.getScope(application)
-            .createChildScope(this, AddAlbumModule)
+            .createChildScope(this,
+                SearchReleaseGroupsModule
+            )
             .inject(this)
 
         with(views.ResultsList) {
@@ -62,24 +65,35 @@ class AddAlbumActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    private inner class SearchResultsAdapter
-        : ViewBindingAdapter<SearchResult, ListAlbumViewBinding>(ListAlbumViewBinding::inflate) {
+    private fun goToAddRelease(releaseGroup: ReleaseGroupResult) {
+        AddReleaseActivity.getLauncher(
+            AddReleaseActivity.Arguments(
+            releaseGroupId = releaseGroup.releaseGroupId,
+            coverUrl = releaseGroup.coverUrl?.uri(),
+            artistName = releaseGroup.artistName,
+            albumName = releaseGroup.albumName
+        )).startActivity(this)
+    }
 
-        override fun bind(item: SearchResult, viewBinding: ListAlbumViewBinding) {
+    private inner class SearchResultsAdapter : ViewBindingAdapter<ReleaseGroupResult,
+            ListAlbumViewBinding>(ListAlbumViewBinding::inflate) {
+
+        override fun bind(item: ReleaseGroupResult, viewBinding: ListAlbumViewBinding) {
             viewBinding.setResult(item)
         }
 
-        override fun isSameItem(a: SearchResult, b: SearchResult): Boolean = a.id == b.id
+        override fun isSameItem(a: ReleaseGroupResult, b: ReleaseGroupResult): Boolean =
+            a.releaseGroupId == b.releaseGroupId
 
-        override fun onItemClick(item: SearchResult, viewBinding: ListAlbumViewBinding) {
-            // TODO
+        override fun onItemClick(item: ReleaseGroupResult, viewBinding: ListAlbumViewBinding) {
+            goToAddRelease(item)
         }
     }
 
-    fun ListAlbumViewBinding.setResult(searchResult: SearchResult) {
+    fun ListAlbumViewBinding.setResult(searchResult: ReleaseGroupResult) {
         searchResult.coverUrl.coverImageLoader().placeholder(R.drawable.ic_album).into(Cover)
-        Album.text = searchResult.artistName
-        Artist.text = searchResult.albumName
-        ReleaseYear.text = searchResult.releaseDate?.year.toString()
+        Album.text = searchResult.albumName
+        Artist.text = searchResult.artistName
+        ReleaseDetails.text = searchResult.artistDisambiguation ?: ""
     }
 }

@@ -18,6 +18,8 @@ interface MusicBrainzApi {
 
         private const val BASE_URL = "https://musicbrainz.org/ws/2/"
 
+        const val MAX_PAGE_SIZE = 25
+
         private const val USER_AGENT =
             "${BuildConfig.APPLICATION_ID}/${BuildConfig.VERSION_NAME} ${BuildConfig.CONTACT_EMAIL}"
 
@@ -36,17 +38,33 @@ interface MusicBrainzApi {
                 .create()
         }
 
+        // works for both releaseIds and releaseGroupIds, but you'll have more success with
+        // releaseGroupIds
         fun coverImageUrl(releaseId: UUID): HttpUrl? =
-            HttpUrl.parse("https://coverartarchive.org/release/${releaseId}/front-500.jpg")
+            HttpUrl.parse("https://coverartarchive.org/release-group/${releaseId}/front-500.jpg")
     }
 
-    @GET("release?fmt=json")
-    suspend fun searchReleases(
+    @GET("release-group?inc=artist-credits&fmt=json")
+    suspend fun searchReleaseGroups(
         @Query("query") query: String,
-        @Query("limit") limit: Int = 25,
+        @Query("limit") limit: Int = MAX_PAGE_SIZE,
         @Query("offset") offset: Int = 0
-    ): MusicBrainz.ReleaseQueryResult
+    ): MusicBrainz.ReleaseGroupQueryResult
 
-    @GET("release/{releaseId}?inc=media+recordings&fmt=json")
-    suspend fun lookupRelease(@Path("releaseId") releaseId: UUID): MusicBrainz.Release
+    @GET("release?inc=media+recordings+labels&fmt=json")
+    suspend fun getReleasesForGroup(
+        @Query("release-group") releaseGroupId: UUID,
+        @Query("limit") limit: Int = MAX_PAGE_SIZE,
+        @Query("offset") offset: Int = 0
+    ) : MusicBrainz.ReleasesBrowseResult
+
+//    @GET("release?fmt=json")
+//    suspend fun searchReleases(
+//        @Query("query") query: String,
+//        @Query("limit") limit: Int = 25,
+//        @Query("offset") offset: Int = 0
+//    ): MusicBrainz.ReleaseQueryResult
+
+//    @GET("release/{releaseId}?inc=media+recordings&fmt=json")
+//    suspend fun lookupRelease(@Path("releaseId") releaseId: UUID): MusicBrainz.Release
 }
