@@ -5,6 +5,7 @@ import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
 import okhttp3.HttpUrl
+import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 import java.time.format.DateTimeParseException
@@ -55,6 +56,14 @@ class LocalDateAdapter {
             null
         }
     }
+}
+
+class DurationAdapter {
+    @TypeConverter
+    fun toJson(duration: Duration): String = duration.toString()
+
+    @TypeConverter
+    fun fromJson(durationString: String): Duration = Duration.parse(durationString)
 }
 
 @JsonQualifier

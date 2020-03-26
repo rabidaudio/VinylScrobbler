@@ -5,31 +5,37 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import audio.rabid.vinylscrobbler.core.adapters.HttpUrlAdapter
-import audio.rabid.vinylscrobbler.core.adapters.InstantAdapter
-import audio.rabid.vinylscrobbler.core.adapters.LocalDateAdapter
-import audio.rabid.vinylscrobbler.core.adapters.UUIDAdapter
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import audio.rabid.vinylscrobbler.core.adapters.*
 import audio.rabid.vinylscrobbler.data.db.models.Album
+import audio.rabid.vinylscrobbler.data.db.models.Track
 
 @Database(
-    entities = [Album::class],
-    version = 1
+    entities = [
+        Album::class,
+        Track::class
+    ],
+    version = 2
 )
 @TypeConverters(
     HttpUrlAdapter::class,
     UUIDAdapter::class,
     InstantAdapter::class,
-    LocalDateAdapter::class
+    LocalDateAdapter::class,
+    DurationAdapter::class
 )
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         fun get(applicationContext: Context): AppDatabase {
             return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "app")
-                // .addMigrations()
+//                 .addMigrations()
                 .build()
         }
     }
 
     abstract fun albumDao(): Album.Dao
+
+    abstract fun trackDao(): Track.Dao
 }

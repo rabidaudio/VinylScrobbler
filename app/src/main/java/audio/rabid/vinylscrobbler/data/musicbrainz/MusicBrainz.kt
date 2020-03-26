@@ -43,8 +43,8 @@ object MusicBrainz {
     @JsonClass(generateAdapter = true)
     data class Track(
         @Json(name = "id") val id: UUID,
-        @Json(name = "number") val number: String,
-        @Json(name = "position") val position: Int,
+        @Json(name = "number") val number: String, // user-friendly position, e.g. A1
+        @Json(name = "position") val position: Int, // 1-indexed
         @Json(name = "length") val durationMillis: Long,
         @Json(name = "title") val title: String
     ) {

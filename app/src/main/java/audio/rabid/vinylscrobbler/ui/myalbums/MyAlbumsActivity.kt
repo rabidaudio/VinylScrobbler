@@ -20,6 +20,9 @@ import audio.rabid.vinylscrobbler.databinding.ActivityMyAlbumsBinding
 import audio.rabid.vinylscrobbler.databinding.SquareAlbumViewBinding
 import audio.rabid.vinylscrobbler.ui.addalbum.search.SearchReleaseGroupsActivity
 import audio.rabid.vinylscrobbler.ui.coverImageLoader
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Transformation
+import java.lang.Exception
 
 class MyAlbumsActivity : AppCompatActivity() {
 
@@ -66,7 +69,6 @@ class MyAlbumsActivity : AppCompatActivity() {
     }
 
     private fun onStateChanged(state: MyAlbumsViewModel.State) {
-//        myAlbumsView.albumGrid.setItems(state.albums)
         myAlbumsAdapter.setItems(state.albums)
     }
 
@@ -99,19 +101,18 @@ class MyAlbumsActivity : AppCompatActivity() {
 }
 
 fun SquareAlbumViewBinding.setAlbum(album: Album) {
-    album.coverUrl.coverImageLoader().placeholder(R.drawable.ic_album_with_skrim).into(Cover)
-    if (album.coverUrl == null) {
-        Title.text = album.name
-        // artistName.text = album.artistName
-        ReleaseDetails.text = "2006" // STOPSHIP
-//        Skrim.visibility = View.VISIBLE
-        ReleaseDetails.visibility = View.VISIBLE
-        // artistName.visibility = View.VISIBLE
-        ReleaseDetails.visibility = View.VISIBLE
-    } else {
-//        Skrim.visibility = View.GONE
-        Title.visibility = View.GONE
-        // artistName.visibility = View.GONE
-        ReleaseDetails.visibility = View.GONE
-    }
+    album.coverUrl.coverImageLoader()
+        .placeholder(R.drawable.ic_album_with_skrim)
+        .into(Cover, object : Callback {
+            override fun onSuccess() {
+                Title.visibility = View.GONE
+                ReleaseDetails.visibility = View.GONE
+            }
+
+            override fun onError(e: Exception?) {
+                ReleaseDetails.visibility = View.VISIBLE
+            }
+        })
+    Title.text = album.name
+    ReleaseDetails.text = album.artistName
 }
