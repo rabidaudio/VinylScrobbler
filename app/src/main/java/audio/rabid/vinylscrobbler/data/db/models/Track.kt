@@ -29,6 +29,12 @@ data class Track(
         @Query("SELECT * FROM tracks where album_id = :albumId ORDER BY position")
         suspend fun getTracksForAlbum(albumId: Int): List<Track>
 
+        @Query("SELECT * FROM tracks where id = :trackId")
+        suspend fun find(trackId: Long): Track
+
+        @Query("SELECT * FROM tracks where id IN (:trackIds)")
+        suspend fun find(trackIds: List<Long>): List<Track>
+
         @Insert(onConflict = REPLACE)
         suspend fun insert(tracks: List<Track>)
 

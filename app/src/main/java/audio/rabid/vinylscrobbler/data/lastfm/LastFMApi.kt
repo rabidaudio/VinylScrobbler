@@ -32,7 +32,7 @@ interface LastFMApi {
         @Field("trackNumber") trackNumber: Int? = null,
         @Field("mbid") musicBrainzTrackId: UUID? = null,
         @Field("albumArtist") albumArtistName: String? = null,
-        @Field("duration") durationSeconds: Int? = null
+        @Field("duration") durationSeconds: Long? = null
     ): JSONObject
 
     // https://www.last.fm/api/show/track.updateNowPlaying

@@ -34,6 +34,9 @@ data class Album(
         """)
         fun search(name: String): Flow<List<Album>>
 
+        @Query("SELECT * FROM albums where id = :albumId")
+        suspend fun find(albumId: Long): Album
+
         @Update
         suspend fun update(album: Album)
 
