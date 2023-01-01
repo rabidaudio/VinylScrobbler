@@ -14,7 +14,7 @@ import java.util.*
     ]
 )
 data class Album(
-    @PrimaryKey(autoGenerate = true) val id: Long? = null,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "artist_name")val artistName: String,
     @ColumnInfo(name = "mbid") val musicBrainzReleaseId: UUID?,
@@ -41,7 +41,7 @@ data class Album(
         suspend fun update(album: Album)
 
         @Insert(onConflict = REPLACE)
-        suspend fun insert(album: Album)
+        suspend fun insert(album: Album): Long
 
         @Delete
         suspend fun delete(album: Album)

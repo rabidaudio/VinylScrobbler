@@ -18,11 +18,18 @@ import audio.rabid.vinylscrobbler.core.ui.viewBinding
 import audio.rabid.vinylscrobbler.data.db.models.Album
 import audio.rabid.vinylscrobbler.databinding.ActivityMyAlbumsBinding
 import audio.rabid.vinylscrobbler.databinding.SquareAlbumViewBinding
+import audio.rabid.vinylscrobbler.playback.Scrobbler
+import audio.rabid.vinylscrobbler.playback.ScrobblerService
 import audio.rabid.vinylscrobbler.ui.addalbum.search.SearchReleaseGroupsActivity
 import audio.rabid.vinylscrobbler.ui.coverImageLoader
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Transformation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.lang.Exception
+import kotlin.coroutines.CoroutineContext
 
 class MyAlbumsActivity : AppCompatActivity() {
 
@@ -90,12 +97,17 @@ class MyAlbumsActivity : AppCompatActivity() {
         startActivity(Intent(this, SearchReleaseGroupsActivity::class.java))
     }
 
-    class AlbumListAdapter :
+    private inner class AlbumListAdapter :
         ViewBindingAdapter<Album, SquareAlbumViewBinding>(SquareAlbumViewBinding::inflate) {
         override fun isSameItem(a: Album, b: Album): Boolean = a == b
 
         override fun bind(item: Album, viewBinding: SquareAlbumViewBinding) {
             viewBinding.setAlbum(item)
+        }
+
+        override fun onItemClick(item: Album, viewBinding: SquareAlbumViewBinding) {
+            // TODO open album details activity
+            viewModel.startPlayback(item)
         }
     }
 }

@@ -16,6 +16,7 @@ class ScrobblerService : Service() {
 
     companion object {
         const val NOTIFICATION_CHANNEL_NAME = "Playback"
+        const val FOREGROUND_NOTIFICATION_ID = 1
         private const val EXTRA_PLAY_REQUEST = "EXTRA_PLAY_REQUEST"
 
         fun beginPlayback(context: Context, playRequest: Scrobbler.PlayRequest) {
@@ -46,9 +47,8 @@ class ScrobblerService : Service() {
             stopSelf()
             return super.onStartCommand(intent, flags, startId)
         }
-        val notificationId = 1
-        startForeground(notificationId, getForegroundNotification())
-        scrobbler.play(playRequest, notificationId)
+        startForeground(FOREGROUND_NOTIFICATION_ID, getForegroundNotification())
+        scrobbler.play(playRequest)
         return START_STICKY
     }
 
@@ -72,6 +72,7 @@ class ScrobblerService : Service() {
         return NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_NAME).apply {
             // TODO: style placeholder notification
             setContentText("Setting up...")
+            setSmallIcon(R.drawable.ic_notification)
         }.build()
     }
 }

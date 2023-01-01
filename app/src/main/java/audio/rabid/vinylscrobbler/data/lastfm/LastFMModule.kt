@@ -4,8 +4,10 @@ import audio.rabid.kaddi.dsl.*
 import audio.rabid.kaddi.instance
 import audio.rabid.vinylscrobbler.BuildConfig
 import audio.rabid.vinylscrobbler.core.adapters.IntegerBoolean
+import audio.rabid.vinylscrobbler.data.LoggingModule
 import audio.rabid.vinylscrobbler.data.MoshiModule
 import audio.rabid.vinylscrobbler.data.RetrofitModule
+import com.fixdapp.android.logger.Logger
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.create
@@ -42,5 +44,11 @@ val LastFMModule = module("LastFM") {
                 .build())
             .build()
             .create()
+    }
+
+    import(LoggingModule)
+    require<Logger>()
+    bind<LastFMApi>(overrides = true).with {
+        MockLastFMApi(logger = instance())
     }
 }

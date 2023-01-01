@@ -13,7 +13,7 @@ import java.util.*
     ]
 )
 data class Track(
-    @PrimaryKey(autoGenerate = true) val id: Long? = null,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "artist_name") val artistName: String,
     @ColumnInfo(name = "album_name") val albumName: String,
@@ -27,7 +27,7 @@ data class Track(
     @androidx.room.Dao
     interface Dao {
         @Query("SELECT * FROM tracks where album_id = :albumId ORDER BY position")
-        suspend fun getTracksForAlbum(albumId: Int): List<Track>
+        suspend fun getTracksForAlbum(albumId: Long): List<Track>
 
         @Query("SELECT * FROM tracks where id = :trackId")
         suspend fun find(trackId: Long): Track

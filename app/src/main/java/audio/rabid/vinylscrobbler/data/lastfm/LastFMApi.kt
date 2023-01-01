@@ -46,12 +46,12 @@ interface LastFMApi {
         @Field("trackNumber") trackNumber: Int? = null,
         @Field("mbid") musicBrainzTrackId: UUID? = null,
         @Field("albumArtist") albumArtistName: String? = null,
-        @Field("duration") durationSeconds: Int? = null
+        @Field("duration") durationSeconds: Long? = null
     ): JSONObject
 
     // https://www.last.fm/api/show/album.getInfo
-    @GET(BASE_URL)
-    @LastFMMethod(method = "album.getInfo")
-    suspend fun getAlbumInfo(@Query("mbid") musicBrainzReleaseId: UUID,
-                             @Query("username") username: String? = null): LastFM.Album
+//    @GET(BASE_URL)
+//    @LastFMMethod(method = "album.getInfo")
+//    suspend fun getAlbumInfo(@Query("mbid") musicBrainzReleaseId: UUID,
+//                             @Query("username") username: String? = null): LastFM.Album
 }

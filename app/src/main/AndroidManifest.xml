@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="audio.rabid.vinylscrobbler">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".VSApp"
         android:allowBackup="true"
@@ -13,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <service android:name=".playback.ScrobblerService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
         <activity android:name=".ui.addalbum.search.SearchReleaseGroupsActivity"
             android:label="@string/add_album" />
         <activity android:name=".ui.addalbum.add.AddReleaseActivity" />
